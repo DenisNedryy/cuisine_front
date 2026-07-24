@@ -9,18 +9,20 @@ export function Home() {
     const { categories, cuissons, saisons, gastronomie, tags } = HookCategories_img();
 
     return (
-        <div className="home">
-            <Banner />
+        <div className="home__container">
+            <div className="home">
+                <Banner />
 
-            {/* 1 article de blog */}
-            <Recipes />
+                {/* 1 article de blog */}
+                <Recipes />
 
-            {/* 
+                {/* 
               <RecettesHorizontal items={categories} name={"Recette par Categories"} />
             <RecettesHorizontal items={cuissons} name={"Recettes par cuisson"} />
             <RecettesHorizontal items={saisons} name={"Recettes par saisons"} />
             <RecettesHorizontal items={gastronomie} name={"Recettes par gastronomie"} />
             <RecettesHorizontal items={tags} name={"Recettes par tags"} /> */}
+            </div>
         </div>
     );
 }

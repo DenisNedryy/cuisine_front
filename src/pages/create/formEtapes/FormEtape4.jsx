@@ -57,7 +57,7 @@ export function FormEtape4() {
 
     return (
         <div className="formEtape">
-            <p>Etape 4 sur 4</p>
+        <p>Etape <span className="red">4</span> sur <span className="red">4</span></p>
             <h2>Ajouter une image</h2>
 
             <form onSubmit={(e) => handleSubmit(e)}>

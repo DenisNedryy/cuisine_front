@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export function usePagination(articles, itemsPerPage = 10, range = 2) {
+export function usePagination(articles=[], itemsPerPage = 10, range = 2) {
 
     const location = useLocation();
     const [width, setWidth] = useState(document.body.clientWidth);
@@ -17,8 +17,6 @@ export function usePagination(articles, itemsPerPage = 10, range = 2) {
         currentCategory: "",
         search: null
     });
-
-
 
     useEffect(() => {
         setCurrentPage(getCurrentPage());
@@ -50,8 +48,7 @@ export function usePagination(articles, itemsPerPage = 10, range = 2) {
 
     }, [articles, itemsPerPage, range, location.search]);
 
-
-
+    
     function getSearchParams() {
         const str = window.location.href;
         const url = new URL(str);

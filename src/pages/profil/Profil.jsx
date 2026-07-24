@@ -59,7 +59,7 @@ export function Profil() {
         const date = new Date(timeStamp);
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
-        const day = date.getDay();
+        const day = date.getDate();
         return { day: day, month: month, year: year }
     }
 
@@ -97,6 +97,19 @@ export function Profil() {
         e.preventDefault();
         navigate(`/myRecipes?userId=${myId}`);
     }
+
+    function formatDate(date) {
+          console.log("coucou");
+        if (!date) return "";
+
+        const day = String(date.day).padStart(2, "0");
+        const month = String(date.month).padStart(2, "0");
+      
+
+        return `${day}/${month}/${date.year}`;
+    };
+
+           
 
     return (
         <div className="profil">
@@ -162,7 +175,7 @@ export function Profil() {
                             </div>
                         )}
                         <div className="profil__content__data__footer">
-                            {dateData !== null && <p>Date d'inscription: {`${dateData.day}-${dateData.month}-${dateData.year}`}</p>}
+                            {dateData !== null && <p>Date d'inscription: {formatDate(dateData)}</p>}
                             <p>{favCount} likes / {myRecipeCount} recettes</p>
                             <p>Recette la plus populaire: <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> ({mostFavRecipe.favorites_count} {mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
                             <button className="btn btn-myRecipes" onClick={recettesProfil}>Mes recettes</button>
@@ -218,7 +231,11 @@ export function Profil() {
                             </div>
                         )}
                         <div className="profil__content__data__footer">
-                            {dateData !== null && <p>Date d'inscription: {`${dateData.day}-${dateData.month}-${dateData.year}`}</p>}
+                            {dateData !== null && (
+                                <p>
+                                    Date d'inscription : {formatDate(dateData)}
+                                </p>
+                            )}
                             <p>{favCount} likes / {myRecipeCount} recettes</p>
                             <p>Recette la plus populaire: <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> ({mostFavRecipe.favorites_count} {mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
                             <button className="btn btn-myRecipes" onClick={recettesProfil}>Mes recettes</button>

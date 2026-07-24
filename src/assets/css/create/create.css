@@ -6,6 +6,12 @@
     width: 550px;
     margin: auto;
     margin-top: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 15px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .3);
 }
 
 .createRecipeForm {
@@ -159,13 +165,25 @@
 
 .formEtape>p {
     font-size: 14px;
-    color: rgba(0, 0, 0, .8);
 }
 
 .formEtape>h2 {
     font-size: 20px;
     margin: 15px 0px;
     font-weight: 500;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.formEtape>h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: red;
+    width: 100%;
 }
 
 .formEtape form {
@@ -216,7 +234,9 @@
 
 .btn-suivant {
     margin-right: 10px;
-    background-color: rgb(219, 184, 35);
+    background-color: red;
+    color: white;
+    font-weight: 600;
 }
 
 .formEtape .divSelect {
@@ -304,4 +324,10 @@
 
 .ingredient__body--false {
     display: none;
+}
+
+.divSelect textArea {
+    width: 431px;
+    height: 150px;
+    resize:none;
 }

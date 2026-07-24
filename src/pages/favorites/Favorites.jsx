@@ -15,11 +15,11 @@ export function Favorites() {
         const res = await getFavorites();
         const favIds = res.data.favorites;
         if (!favIds) return;
-            if (favIds.length <= 0) {
-                setRecipes([]);
-                return;
-            }
-        
+        if (favIds.length <= 0) {
+            setRecipes([]);
+            return;
+        }
+
         const recipesIds = favIds.map((ids) => ids._id);
 
         const favoritesRecipes = (await Promise.all(
@@ -36,11 +36,14 @@ export function Favorites() {
     }
 
 
-
-
     return (
-        <>
-            {recipes && recipes.length > 0 && <Recipes recipesData={recipes} onUpdateFav={controller} />}
+        <>  <div className="recipePage__bg">
+        <h2 className="favoriesTitle">Favories</h2>
+        <p className="favoriesSousTitle">Vos recettes favorites</p>
+            <div className="recipePage__container">
+                {recipes && recipes.length > 0 && <Recipes recipesData={recipes} onUpdateFav={controller} />}
+            </div>
+        </div>
         </>
     );
 }

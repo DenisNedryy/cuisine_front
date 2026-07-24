@@ -31,8 +31,7 @@ export function Navigation() {
                     <NavLink to="/" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Accueil</li></NavLink>
                     <div className="navLink"><li>Recettes</li><MenuDeroulant data={recipesMenuData} /></div>
                     <NavLink to="/favorites" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Favoris</li></NavLink>
-                    <NavLink to="/books" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Livres</li></NavLink>
-                    <NavLink to="/blog" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Blog</li></NavLink>
+                    <NavLink to="/populars" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Populaires</li></NavLink>
                     {state.isConnected && <NavLink to="/create?form-create-etape=1" className={({ isActive }) => isActive ? "menuIsActive" : ""}><li>Create</li></NavLink>}
                 </ul>
             </div>

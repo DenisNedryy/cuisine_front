@@ -18,6 +18,7 @@ import { UpdateMenu } from './pages/focus/update/UpdateMenu';
 import { ChatMenu } from "./components/layout/chat/ChatMenu";
 import { RecipesBySearch } from "./pages/recipesBySearch/RecipesBySearch";
 import { MyRecipes } from './pages/myRecipes/MyRecipes';
+import { Populars } from "./pages/populars/Populars";
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
           <Route path="/recipes" element={<RecipesPage />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/books" element={<Books />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/populars" element={<Populars />} />
           {state.isConnected && <Route path="/create" element={<Create />} />}
           {state.isConnected && <Route path="/profil" element={<Profil />} />}
           <Route path="/auth" element={<Auth />} />
@@ -55,7 +56,6 @@ function App() {
           {state.isConnected && <Route path="/update" element={<UpdateMenu />} />}
           <Route path="/recipesBySearch" element={<RecipesBySearch />} />
           {state.isConnected && <Route path="/myRecipes" element={<MyRecipes />} />}
-          
         </Routes>
       </main>
       <Footer />

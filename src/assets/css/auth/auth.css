@@ -1,10 +1,18 @@
 .auth {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     padding-bottom: 50px;
-    overflow:hidden;
+    overflow: hidden;
+    color: white;
+}
+
+.auth img {
+    width: 800px;
+    height: 582px;
+    object-fit: fill;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .auth__selectionPage {
@@ -14,17 +22,18 @@
 .auth__selectionPage h2 {
     margin: 15px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .auth button {
     border: none;
-    background-color: rgb(219, 184, 35);
-    padding: 15px;
-    color: black;
+    background-color: #cb4747;
+    padding: 9px;
+    color: white;
     font-weight: 600;
     width: 100%;
     border-radius: 5px;
+    font-size: 12px;
 }
 
 .btn-auth {
@@ -46,19 +55,51 @@
     width: 100%;
 }
 
+.auth__selectionPage__header h2 {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
 .bgDeep-true {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: rgb(219, 184, 35);
-    padding: 15px;
+    color: #cb4747;
+}
+
+.bgDeep-true::after {
+    content: "";
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background-color: #cb4747;
+    content: "";
+    position: absolute;
+    left: 0;
+
 }
 
 .bgDeep-false {
-    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
-    padding: 15px;
+    color: #A19F9BBD;
+}
+
+.auth__selectionPage__header {
+    display: flex;
+}
+
+
+.auth h1 {
+    font-size: 26px;
+    margin-bottom: 13px;
 }
 
 .auth__selectionPage {
     margin: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding: 30px;
+    height: 582px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 .auth button {
@@ -67,6 +108,7 @@
 
 .auth label {
     font-weight: 600;
+    font-size: 14px;
 }
 
 .passwordCheck {
@@ -90,4 +132,18 @@
     font-size: 12px;
     display: flex;
     color: rgb(110, 135, 65);
+}
+
+/* Bannier auth   */
+.authBanner {
+    position: relative;
+}
+
+.authBanner p {
+    position: absolute;
+    top: 44px;
+    font-size: 37px;
+    color: black;
+    left: 28px;
+    font-weight: 500;
 }

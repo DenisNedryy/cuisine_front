@@ -311,6 +311,26 @@ export async function getMostFavRecipe(userId) {
     }
 };
 
+export async function getTop10Recipes(userId) {
+    try {
+        const preRes = await fetch(`${HOST}/api/recipe/getTop10Recipes/${userId}`, {
+            method: "GET",
+            credentials: 'include',
+            headers: {
+                "Accept": "application/json",
+            },
+        });
+        const res = await preRes.json();
+        return {
+            status: preRes.status,
+            ok: preRes.ok,
+            data: res
+        };
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 export async function getRecipesByResearch(research) {
     try {
         const preRes = await fetch(`${HOST}/api/recipe/getRecipesByResearch/${research}`, {

@@ -6,16 +6,36 @@
 
 body {
     font-family: "Helvetica Now Text Medium", Helvetica, Arial, sans-serif;
-    background-color:rgb(254,251,241);
+    background-color: rgb(254, 251, 241);
 }
 
 main {
     flex: 1;
-    padding-top: 153px;
+    margin-top: 80px;
+    /* background-color: #1F1F1F; */
+    position: relative;
+    overflow: hidden;
+}
+
+main::before {
+
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: #1F1F1F;
+    background-image: url("../pictures/bg/cook.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100% auto;
+
+    filter: blur(2px);
+    z-index: -1;
+
 }
 
 .app {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
 }

@@ -48,7 +48,7 @@ export function SignUpForm() {
                 <label>Nom:</label>
                 <input type="text" name="name" placeholder="Name*" />
             </div>
-            <div>
+            <div> 
                 <label>Email:</label>
                 <input type="email" name="email" placeholder="Email*" />
             </div>
@@ -57,8 +57,8 @@ export function SignUpForm() {
                 <div className="signUp__passwordContainer"><input type="password" name="password" placeholder="Mot de passe*" onChange={(e)=>handleChange(e)}/> <PasswordVerification inputPassword={password}/></div>
             </div>
             <div>
-                <label>Clef secrète:</label>
-                <input type="password" name="magicWord" placeholder="Clef secrète*" />
+                <label>Mot magique:</label>
+                <input type="password" name="magicWord" placeholder="Mot magique*" />
             </div>
 
             <button type="submit">Soumission</button>

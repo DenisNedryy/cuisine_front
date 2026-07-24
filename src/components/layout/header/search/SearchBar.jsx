@@ -21,7 +21,7 @@ export function SearchBar() {
     return (
         <div className="searchBar">
             <form onSubmit={handleSubmit}>
-                <input type="text" name="searchBar" placeholder="Rechercher une recette, un theme, une catégorie ou un ingredient" />
+                <input type="text" name="searchBar" placeholder="Rechercher une recette" />
                 {/* <button type="submit" className="btn">Submit</button> */}
                 <div className="searchBar__miniNavigation" onClick={(e) => toogleNavigation(e)}>
                     <i className="fa-solid fa-bars"></i>

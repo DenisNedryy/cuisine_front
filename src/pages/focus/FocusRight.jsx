@@ -18,14 +18,13 @@ export function FocusRight({ recipe, isUpdate }) {
             page: url.searchParams.get("page") || 1,
             category: url.searchParams.get("category") || "",
             tag: url.searchParams.get("tag") || "",
-            recipeId: url.searchParams.get("recipeId") || null,
+            recipeId: url.searchParams.get("recipeId") || null, 
         }
     }
 
     return (
-        <div className={`focusRight ${isUpdate && "clickable"}`} onClick={isUpdate ? (e) => handleUpdateIngredients(e) : () => console.log("")}>
-            <h2>Ingrédients</h2>
-            <p className="focusRight--nbPersonnes">{recipe.servings} {recipe.servings === 1 ? ` personne` : `personnes`}</p>
+        <div className={`focusRight ${isUpdate && "clickable"}`} onClick={isUpdate ? (e) => handleUpdateIngredients(e) : () => console.log("")}> 
+            <h2>Ingrédients pour {recipe.servings} {recipe.servings === 1 ? ` personne` : `personnes`}</h2>
             <div className={`focusRight__ingredients`}>
                 {recipe.ingredients.map((ingredient, index2) => (
                     <div className="focusRight__ingredients__ingredient" key={index2}>
@@ -36,7 +35,7 @@ export function FocusRight({ recipe, isUpdate }) {
             </div>
             <div className="focusRight__barHorizontal"></div>
             <div className="focusRight__steps">
-                <h2>Etapes</h2>
+                <h2>Étapes de préparation</h2>
                 <div className={`focusRight__steps__etapes`}>
                     {recipe.steps.map((step, index3) => (
                         <div className="focusRight__steps__etapes__step" key={index3}>

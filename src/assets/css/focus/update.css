@@ -3,10 +3,39 @@
     flex-direction: column;
     width: 400px;
     margin: auto;
+    width: 550px;
+    margin: auto;
+    margin-top: auto;
+    margin-top: 25px;
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 15px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .3);
+    width: 431px;
+    margin: auto;
 }
 
 .updateMenu>h1 {
     margin: 15px 0px;
+    font-size: 20px;
+    margin: 15px 0px;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.updateMenu>h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 2px;
+    background-color: red;
+    width: 100%;
 }
 
 .formEtape {
@@ -27,24 +56,23 @@
 .formEtage__header {
     display: flex;
     align-items: center;
-    padding: 10px;
-    margin: 25px 0px;
+    justify-content: space-between;
+    width: fit-content;
+
 }
 
 .formEtage__header__previousPage {
-    margin-right: 20px;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, .3);
     border-radius: 5px;
-    color: black;
-    font-size: 20px;
-    padding: 4px 9px;
+    font-size: 17px;
+    padding: 10px;
     cursor: pointer;
+    color: #AAB6B6;
 }
 
 .formEtage__header h2 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
+    color: #AAB6B6;
 }
 
 html .updateMenu>h1 {

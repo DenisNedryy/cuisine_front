@@ -1,142 +1,199 @@
-import { useState, useEffect } from "react";
-import { getRecipes } from "../../services/recipes";
-import { usePagination } from "../../hooks/usePagination";
-import { Recipe } from "../common/Recipe";
-import { getFavorites } from "../../services/favorites";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Page } from "./Page";
+
+import { getRecipes } from "../../services/recipes";
+import { getFavorites } from "../../services/favorites";
 import { isUserConnected } from "../../services/auth";
 
-export function Recipes({ recipesData, onUpdateFav }) {
+import { usePagination } from "../../hooks/usePagination";
+import { Recipe } from "../common/Recipe";
+import { Page } from "./Page";
 
+export function Recipes({
+    recipesData,
+    onUpdateFav,
+    isSearching = false
+}) {
     const [recipes, setRecipes] = useState([]);
-    const pagination = usePagination(recipes);
-    const [parmUrl, setParamUrl] = useState({});
-    const location = useLocation();
+    const [paramUrl, setParamUrl] = useState({
+        page: 1,
+        category: null,
+        tag: null
+    });
 
+    const location = useLocation();
+    const pagination = usePagination(recipes);
 
     useEffect(() => {
         controllerRecipes();
     }, [location.search, recipesData]);
 
-
     async function controllerRecipes() {
-        const resRecipes = await getRecipes();
-        let myRecipes = recipesData || resRecipes.data.recipes;
+        try {
+            let myRecipes = recipesData;
 
-        const urlParamsData = getUrlParams();
-        setParamUrl(urlParamsData);
-        const recipesParamsClean = avecOuSansParams(urlParamsData, myRecipes);
-        const recipesAndFavorites = await addFavoritesToData(recipesParamsClean, recipesParamsClean);
-        setRecipes(recipesAndFavorites);
-        setTimeout(()=>{
-            resetScrollToTop();
-        },[10]);
-    }
-
-    async function addFavoritesToData(internRecipes, recipes) {
-        const isUser = await isUserConnected();
-        if (!isUser.data.isUser) return recipes;
-        const favRes = await getFavorites();
-        const favorites = favRes.data.favorites;
-        const favoritesIds = [];
-        favorites.forEach((favorite) => favoritesIds.push(favorite._id));
-
-        return internRecipes.map((recipe) => {
-            if (favoritesIds.includes(recipe._id)) {
-                recipe.fav = true;
-                return recipe;
-            } else {
-                recipe.fav = false;
-                return recipe;
+            // On appelle l'API uniquement si aucune recette
+            // n'est déjà fournie dans les props.
+            if (!myRecipes) {
+                const resRecipes = await getRecipes();
+                myRecipes = resRecipes.data.recipes;
             }
-        });
-    }
 
-    function avecOuSansParams(data, myRecipes) {
-        // S'il n'y a pas de params
-        if (data.category === null && data.tag === null) {
-            // on prend tous les articles
-            return myRecipes;
-        } else {
-            const recipesFilteredByCategory = filterRecipes(data, myRecipes);
-            return recipesFilteredByCategory;
+            const urlParamsData = getUrlParams();
+            setParamUrl(urlParamsData);
+
+            const filteredRecipes = filterRecipesWithParams(
+                urlParamsData,
+                myRecipes
+            );
+
+            const recipesWithFavorites = await addFavoritesToData(
+                filteredRecipes
+            );
+
+            setRecipes(recipesWithFavorites);
+
+            setTimeout(resetScrollToTop, 10);
+        } catch (error) {
+            console.error(
+                "Erreur lors de la récupération des recettes :",
+                error
+            );
         }
     }
 
-    function filterRecipes(paramsData, myRecipes) {
-        const categories = [paramsData.category, paramsData.tag];
-        const recipesArr = [];
-        myRecipes.forEach((recipe) => {
-            if (categories.includes(recipe.category) && !recipesArr.some((cell) => cell._id === recipe._id)) {
-                recipesArr.push(recipe);
-            }
-            recipe.tags.forEach((tag) => {
-                if (categories.includes(tag.tag) && !recipesArr.some((cell) => cell._id === recipe._id)) {
-                    recipesArr.push(recipe);
-                }
-            })
-        });
+    async function addFavoritesToData(recipesToUpdate) {
+        const userResponse = await isUserConnected();
 
-        return recipesArr;
+        if (!userResponse.data.isUser) {
+            return recipesToUpdate.map((recipe) => ({
+                ...recipe,
+                fav: false
+            }));
+        }
+
+        const favoritesResponse = await getFavorites();
+        const favorites = favoritesResponse.data.favorites;
+
+        const favoritesIds = favorites.map(
+            (favorite) => favorite._id
+        );
+
+        return recipesToUpdate.map((recipe) => ({
+            ...recipe,
+            fav: favoritesIds.includes(recipe._id)
+        }));
+    }
+
+    function filterRecipesWithParams(params, recipesToFilter) {
+        if (!params.category && !params.tag) {
+            return recipesToFilter;
+        }
+
+        return filterRecipes(params, recipesToFilter);
+    }
+
+    function filterRecipes(params, recipesToFilter) {
+        const selectedFilters = [
+            params.category,
+            params.tag
+        ].filter(Boolean);
+
+        return recipesToFilter.filter((recipe) => {
+            const matchesCategory = selectedFilters.includes(
+                recipe.category
+            );
+
+            const matchesTag = recipe.tags?.some((tag) =>
+                selectedFilters.includes(tag.tag)
+            );
+
+            return matchesCategory || matchesTag;
+        });
     }
 
     function getUrlParams() {
-        const str = window.location.href;
-        const url = new URL(str);
+        const searchParams = new URLSearchParams(location.search);
+
         return {
-            page: url.searchParams.get("page") || 1,
-            category: url.searchParams.get("category") || null,
-            tag: url.searchParams.get("tag") || null
-        }
+            page: Number(searchParams.get("page")) || 1,
+            category: searchParams.get("category"),
+            tag: searchParams.get("tag")
+        };
     }
 
-    function resetScrollToTop(){
+    function resetScrollToTop() {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
-          });
-
+            behavior: "smooth"
+        });
     }
+
+    const activeFilter = paramUrl.category || paramUrl.tag;
 
     return (
         <div className="recipePage">
-            
             <div className="recipes__legend">
-                <div className="recipes__legend__tags">
-                    <div className="btn">{parmUrl.category ? (parmUrl.category) : ("toutes les catégories")}</div>
-                    <div className="btn">{parmUrl.tag ? (parmUrl.tag) : ("toutes les tags")}</div>
-                </div>
-
-                <div className="recipes__legend_difficulty__container">
-                    <p>Difficulté: </p>
-                    <div className="recipes__legend__difficulty">
-                        <div className="recipes__legend__difficulty--facile"></div>
-                        <div className="recipes__legend__difficulty--moyen"></div>
-                        <div className="recipes__legend__difficulty--difficile"></div>
+                {!isSearching && (
+                    <div className="recipes__legend_difficulty__container">
+                        <div className="recipes__legend__difficulty">
+                            <div className="recipes__legend__difficulty--facile" />
+                            <div className="recipes__legend__difficulty--moyen" />
+                            <div className="recipes__legend__difficulty--difficile" />
+                        </div>
                     </div>
-                </div>
+                )}
+
+                {isSearching && (
+                    <>
+                        <p className="legendDifficulté">
+                            Nos recettes
+                        </p>
+
+                        <div className="recipes__legend__tags">
+                            <h2>
+                                {activeFilter
+                                    ? `Trouvez votre prochaine recette correspondant à « ${activeFilter} ».`
+                                    : "Trouvez votre prochaine recette parmi toutes les catégories."}
+                            </h2>
+
+                            <p>
+                                Des idées gourmandes pour toutes vos
+                                envies, du quotidien aux grandes
+                                occasions.
+                            </p>
+                        </div>
+                    </>
+                )}
             </div>
 
             <div className="recipes">
-                {pagination.filterArticleByPage.map((recipe, index) => (
-                    <div key={index}>
-                        {/* Si recipes recoit déjà des recettes en props */}
-                        < Recipe recipe={recipe} onUpdate={onUpdateFav || controllerRecipes} />
+                {pagination.filterArticleByPage.map((recipe) => (
+                    <div key={recipe._id}>
+                        <Recipe
+                            recipe={recipe}
+                            onUpdate={
+                                onUpdateFav || controllerRecipes
+                            }
+                        />
                     </div>
-                ))
-                }
+                ))}
+            </div>
 
-            </div >
             <div className="recipePage__content__pagination">
                 <div className="recipePage__content__pagination__left pageCube">
-                    <i className="fa-solid fa-angle-left"></i>
+                    <i className="fa-solid fa-angle-left" />
                 </div>
+
                 <div className="recipePage__content__pagination__pages">
-                    <Page pageInfo={pagination} category={parmUrl.category} />
+                    <Page
+                        pageInfo={pagination}
+                        category={paramUrl.category}
+                    />
                 </div>
+
                 <div className="recipePage__content__pagination__right pageCube">
-                    <i className="fa-solid fa-angle-right"></i>
+                    <i className="fa-solid fa-angle-right" />
                 </div>
             </div>
         </div>

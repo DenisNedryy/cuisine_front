@@ -26,6 +26,7 @@ export function LogInForm() {
         }
 
         const resUser = await isUserConnected();
+        console.log(resUser);
         if (resUser.ok && resUser.data.isUser) {
             dispatch({ type: "SET_USER", payload: true });
         } else {
@@ -59,7 +60,7 @@ export function LogInForm() {
                 <label>Mot de passe:</label>
                 <input type="password" name="password" placeholder="Mot de passe*" />
             </div>
-            <button type="submit">Soumission</button>
+            <button type="submit">Soumission</button> 
             <div className={`state-${answer.state}`}>
                 <p className={`btn-auth btn answer-${answer.color}`}>{answer.msg}</p>
             </div>

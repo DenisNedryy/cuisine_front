@@ -28,11 +28,14 @@ export function Focus() {
     }, []);
 
     useEffect(() => {
-        controller();
-    }, []);
+        if (!state.isLoading) {
+            controller();
+        }
+    }, [state.isLoading, state.isConnected]);
 
     async function controller() {
         let recipeRe = await getOneRecipe();
+        console.log(state.isConnected);
         if (state.isConnected) {
             const userId = recipeRe.user_id;
             const myUser = await getProfilById(userId);
@@ -154,56 +157,69 @@ export function Focus() {
         <div className="focus">
 
             <div className="focus__filter">
+
+
                 <div className="focus__header">
-                    <div className="focus__header__previousPage" onClick={(e) => handleReturn(e)}><i className="fa-solid fa-arrow-left"></i></div>
-                    <p className="focus__header--title">{recipe.name}</p>
+                    <div className="focus__header__previousPage" onClick={(e) => handleReturn(e)}><i className="fa-solid fa-arrow-left"></i> Retour aux recettes</div>
                 </div>
-                {state.isConnected && <div className="focus__author">
-                    <NavLink to={`/profil?userId=${recipe.user_id}`}><img src={`${HOST}/api/images/avatars/${recipe.imgUser}`} /><p>{recipe.author}</p></NavLink>
-                </div>}
-
                 <div className="focus__body">
-                    <div className="focus__body__left">
-                        <div className={`focus__body__left__img ${isUpdate && "clickable"}`} >
-                            <img src={`${HOST}/api/images/recipes/${recipe.img_url}`} onClick={isUpdate ? (e) => handleUpdateImg(e) : () => console.log("")} />
-
-                                {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--update" onClick={(e) => handleUpdate(e)}><i className="fa-regular fa-pen-to-square"></i></div>}
-                                {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--update2"><i className="fa-regular fa-pen-to-square"></i></div>}
-                                {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--delete" onClick={(e) => handleDeleteRecipe(e)}><i className="fa-regular fa-trash-can"></i></div>}
-                                {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--delete2"><i className="fa-regular fa-trash-can"></i></div>}
-                           
+                    <section className="focus__body__main">
+                        <div className="bannerTags">
+                            {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--update" onClick={(e) => handleUpdate(e)}><i className="fa-regular fa-pen-to-square"></i> <p>Modifier</p></div>}
+                            {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--delete" onClick={(e) => handleDeleteRecipe(e)}><i className="fa-regular fa-trash-can"></i> <p>Supprimer</p></div>}
                         </div>
-                        <div className={`focus__body__left__console ${isUpdate && "clickable"}`} onClick={isUpdate ? (e) => handleUpdateCategories(e) : () => console.log("")}>
-                            <div className={`focus__body__left__console__indications `} >
-                                <ul>
-                                    <li><img src={stopwatch} /><p>{recipe.prep_time} m</p></li>
-                                    <div className="barVertical"></div>
-                                    <li><img src={oven} /><p>{recipe.cook_time} m</p></li>
-                                    <div className="barVertical"></div>
-                                    <li><img src={difficulty} /><p>{recipe.difficulty}</p></li>
-                                    <div className="barVertical"></div>
-                                    <li><img src={chef} /><p>{recipe.category}</p></li>
-                                </ul>
-                            </div>
-                            <div className="focus__body__left__console__buttons">
-                                <div className="focus__body__left__console__buttons--fav btn" onClick={(e) => handleFavorites(e)}>{recipe.fav ? (<i className={`fa-solid fa-heart hearth--${recipe.fav}`}></i>) : (<i className={`fa-regular fa-heart hearth--${recipe.fav}`}></i>)} Ajouter aux favoris</div>
-                                <div className="focus__body__left__console__buttons--pdf btn" onClick={(e) => handlePdf(e)}>Télécharger pdf</div>
-                            </div>
-                            <div className="focus__body__left__console__footer">
-                                <div className={`focus__body__left__console__footer__tags`}>
+                        <img className="bg_dishes" src={`${HOST}/api/images/recipes/${recipe.img_url}`} alt="bg_dishes" />
+                        <img
+                            className={`presentation__dishes ${isUpdate ? "clickable" : ""}`}
+                            src={`${HOST}/api/images/recipes/${recipe.img_url}`}
+                            alt="Présentation de la recette"
+                            onClick={isUpdate ? handleUpdateImg : undefined}
+                        />
+                        <div className="focus__body__main__presentation">
+                            <h2>{recipe.name} <span className="presentationServings">( Pour {recipe.servings} {recipe.servings > 1 ? "personnes" : "personne"} )</span></h2>
+                            {state.isConnected ? <div className="focus__author">
+                                <NavLink to={`/profil?userId=${recipe.user_id}`}><img src={`${HOST}/api/images/avatars/${recipe.imgUser}`} /><p>{recipe.author}</p></NavLink>
+                            </div> :
+                                <p className="focus__body__main__presentation__autheur">{recipe.author}</p>
+                            }
+
+                            <div className={`focus__body__main__presentation__indicationsAndDescriptionsAndTags ${isUpdate && "clickable"}`} onClick={isUpdate ? (e) => handleUpdateCategories(e) : () => console.log("")}>
+                                <div className={`focus__body__main__presentation__indications`} >
+                                    <ul>
+                                        <li><img src={stopwatch} /><p>{recipe.prep_time} min</p></li>
+                                        <li><img src={oven} /><p>{recipe.cook_time} min</p></li>
+                                        <li><img src={difficulty} /><p>{recipe.difficulty}</p></li>
+                                        <li><img src={chef} /><p>{recipe.category}</p></li>
+                                    </ul>
+                                </div>
+                                <h3>Description</h3>
+                                <p className="focus__body__main__presentation__description">{recipe.description}</p>
+                                <div className="focus__body__main__presentation__tags">
                                     {recipe.tags && recipe.tags.map((tag, index) => (
-                                        <div className="btn btn-tag" key={index}>
+                                        <div className="btn-tag" key={index}>
                                             {tag.tag}
                                         </div>
                                     ))}
                                 </div>
                             </div>
+                            <div className="focus__body__left__console__buttons">
+                                <div className="focus__body__left__console__buttons--fav btn-cadre" onClick={(e) => handleFavorites(e)}>{recipe.fav ? (<i className={`fa-solid fa-heart hearth--${recipe.fav}`}></i>) : (<i className={`fa-regular fa-heart hearth--${recipe.fav}`}></i>)} Ajouter aux favoris</div>
+                                <div className="focus__body__left__console__buttons--pdf btn-cadre" onClick={(e) => handlePdf(e)}>Télécharger pdf</div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
+                    <section className="focus__body__ingredients"></section>
+                    <section className="focus__body__etapes"></section>
+                </div>
+
+
+                <div className="focus__body">
+
                     <div className="focus__body__right">
                         {recipe.ingredients && <FocusRight recipe={recipe} isUpdate={isUpdate} />}
                     </div>
                 </div>
+
 
             </div>
         </div>

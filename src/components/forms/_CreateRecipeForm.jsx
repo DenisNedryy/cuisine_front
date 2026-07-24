@@ -101,24 +101,50 @@ export function CreateRecipeForm() {
                         </select>
                     </div>
                     <div>
+
                         <label htmlFor="regions">Régions</label>
-                        <select id="regions" name="regions">
-                            <option value="méditéranéenne">méditéranéenne</option>
-                            <option value="asiatique">asiatique</option>
-                            <option value="italienne">italienne</option>
-                            <option value="indienne">indienne</option>
+                        <select id="regions" name="regions" defaultValue="">
+                            <option value="" disabled>
+                                Sélectionner une gastronomie
+                            </option>
+
+                            <option value="francaise">Française</option>
+                            <option value="italienne">Italienne</option>
+                            <option value="espagnole">Espagnole</option>
+                            <option value="portugaise">Portugaise</option>
+                            <option value="grecque">Grecque</option>
+
+                            <option value="britannique-irlandaise">
+                                Britannique et irlandaise
+                            </option>
+
+                            <option value="allemande-autrichienne">
+                                Allemande et autrichienne 
+                            </option>
+
+                            <option value="scandinave">Scandinave</option>
+                            <option value="asiatique">Asiatique</option>
+                            <option value="indienne">Indienne</option>
+                            <option value="moyen-orientale">Moyen-Orientale</option>
+                            <option value="africaine">Africaine</option>
+                            <option value="americaine">Américaine</option>
+                            <option value="sud-americaine">Sud-Américaine</option>
+                            <option value="creole">Créole</option>
                         </select>
                     </div>
                     <div>
                         <label htmlFor="cuisson">Cuisson</label>
                         <select id="cuisson" name="cuisson">
-                            <option value="four">four</option>
-                            <option value="casserole">casserole</option>
-                            <option value="vapeur">vapeur</option>
-                            <option value="poele">poele</option>
-                            <option value="grillé">grillé</option>
-                            <option value="roti">roti</option>
-                            <option value="cru">cru</option>
+                            <option value="four">Au four</option>
+                            <option value="poele">À la poêle</option>
+                            <option value="casserole">À la casserole</option>
+                            <option value="vapeur">À la vapeur</option>
+                            <option value="grill">Au gril</option>
+                            <option value="barbecue">Au barbecue</option>
+                            <option value="friteuse">À la friteuse</option>
+                            <option value="mijoteuse">À la mijoteuse</option>
+                            <option value="micro-ondes">Au micro-ondes</option>
+                            <option value="sans-cuisson">Sans cuisson</option>
                         </select>
                     </div>
                     <div>

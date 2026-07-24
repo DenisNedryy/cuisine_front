@@ -29,7 +29,7 @@ export function FormEtape3() {
 
     return (
         <div className="formEtape">
-            <p>Etape 3 sur 4</p>
+       <p>Etape <span className="red">3</span> sur <span className="red">4</span></p>
             <h2>Completer les tags</h2>
 
 

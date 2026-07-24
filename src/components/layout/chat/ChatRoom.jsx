@@ -22,7 +22,7 @@ export function ChatRoom({ onUpdateUserId, historyChat, onUpdateMessage, userToC
         <div className="chatRoom__content__header">
           <div className="chatRoom__content__header--profil">
             {userToChat && <img src={`${HOST}/api/images/avatars/${userToChat.img_url}`} />}
-            {userToChat && <p>{userToChat.name}</p>}
+            {userToChat && <p className="chatRoom__content__header--name">{userToChat.name}</p>}
           </div>
           <i className="fa-solid fa-xmark leaveRoom" onClick={leaveRoom}></i>
         </div>
@@ -30,9 +30,9 @@ export function ChatRoom({ onUpdateUserId, historyChat, onUpdateMessage, userToC
           {historyChat && historyChat.length > 0 && historyChat.map((cell, index) => (
             <div key={index}>
               <div>
-                <img src={`${HOST}/api/images/avatars/${cell.sender_img_url}`} /><p>{cell.sender_name} <span className="msgDate">. {cell.dateData.hours}:{cell.dateData.minutes}</span></p>
+                <img src={`${HOST}/api/images/avatars/${cell.sender_img_url}`} /><p className="chatRoom__content__chat--name">{cell.sender_name} <span className="msgDate">. {cell.dateData.hours}:{cell.dateData.minutes}</span></p>
               </div>
-              <p>{cell.content}</p>
+              <p className={cell.sender_name === userToChat.name ? "com-exterieur" : ""}>{cell.content}</p>
             </div>
           ))}
         </div>

@@ -7,7 +7,8 @@
     margin: 10px;
     transition-duration: .4s;
     position: relative;
-    overflow:hidden;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 .recipe:hover {
@@ -18,13 +19,13 @@
     content: "";
     filter: blur(10px);
     position: absolute;
-    z-index:9999;
+    z-index: 9999;
     height: 311px;
     width: 100px;
     filter: blur(10px);
-    background: linear-gradient(to right,rgba(255,255,255,0) 30%,rgba(255,255,255,.1) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, .1) 100%);
     top: -30px;
-    transition-duration:1.5s;
+    transition-duration: 1.5s;
     transform: translateX(-250px) skewX(-25deg);
 }
 
@@ -34,7 +35,7 @@
 }
 
 .recipe__top {
-    width: 200px;
+    width: 196px;
     height: 250px;
     position: relative;
 }
@@ -72,12 +73,10 @@
     justify-content: space-evenly;
     align-items: center;
     position: relative;
-    width: 200px;
+    width: 196px;
     height: 35px;
     background: white;
-    overflow: hidden;
     border: 1px solid rgba(0, 0, 0, .1);
-
 }
 
 .recipe__bottom--difficulty {
@@ -94,8 +93,9 @@
     text-transform: capitalize;
 }
 
+
 .difficulty--facile {
-    border-left: 36px solid green;
+    border-left: 32px solid green;
 }
 
 .difficulty--moyen {
@@ -113,18 +113,28 @@
 
 /* recipes */
 .recipes {
-    margin-top: 50px;
-    width: 65%;
-    margin: auto;
+    width: 1080px;
 }
 
 .recipes__legend {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 65%;
     margin: auto;
-    margin-top: 26px;
+    width: 1300px;
+}
+
+.recipes__legend h2 {
+    font-size: 18px;
+}
+
+.recipePage__container {
+    width: 1300px;
+    margin: auto;
+}
+
+.recipePage__bg {
+    height: 100vh;
 }
 
 .recipes__legend__tags {
@@ -141,6 +151,10 @@
 .recipes__legend__difficulty {
     display: flex;
     position: relative;
+}
+
+.recipes__legend__difficulty {
+    height: 50px;
 }
 
 .recipes__legend__difficulty--facile {
@@ -177,10 +191,34 @@
     align-items: center;
 }
 
-.recipePage {}
 
-.home .recipePage {
-    margin-top: 50px;
+
+.mesRecettes__container {
+    width: 1300px;
+    margin: auto;
+}
+
+.mesRecettes {
+    color: rgba(255, 255, 255, .1);
+    margin: 37px 0px 15px 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    border-top: 2px solid rgba(255, 255, 255, .1);
+    padding: 15px;
+    width: fit-content;
+}
+
+.chatRoom__content__footer{
+    border-top: 2px solid rgba(255, 255, 255, .1)!important;
+}
+
+.capitilize {
+    text-transform: capitalize;
+}
+
+.mesRecettes__container h2 {
+    font-size: 18px;
+    color: white;
 }
 
 .miniBanner {
@@ -232,4 +270,83 @@
 
 .btn-myRecipes {
     background-color: rgb(219, 184, 35);
+}
+
+/* Recipes Intro*/
+.recipePage__intro {
+    width: 1300px;
+    margin: auto;
+}
+
+.recipes__legend__tags {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.recipes__legend__tags p {
+    color: #AAB6B6;
+    margin: 5px 0px 25px 0px;
+    font-size: 16px;
+}
+
+.legendDifficulté {
+    color: green;
+    margin: 37px 0px 15px 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 15px;
+    width: fit-content;
+}
+
+/* Favories */
+
+.recipePage__bg {
+    margin: auto;
+    width: 1300px;
+}
+
+.favoriesTitle {
+    color: green;
+    margin: 37px 0px 15px 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 15px;
+    width: fit-content;
+}
+
+.favoriesSousTitle {
+    color: white;
+    font-size: 18px;
+}
+
+.popular__container .popular__container__title {
+    color: green;
+    margin: 37px 0px 15px 0px;
+    text-transform: uppercase;
+    font-size: 17px;
+    background-color: rgba(0, 0, 0, .3);
+    padding: 15px;
+    width: fit-content;
+}
+
+.popular__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 1300px;
+}
+
+.popular__container h2 {
+    font-size: 18px;
+    color: white;
+}
+
+.popular__container .popular__container__description {
+    color: #AAB6B6;
+    margin: 5px 0px 10px 0px;
+    font-size: 16px;
 }

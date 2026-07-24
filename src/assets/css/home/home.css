@@ -1,0 +1,15 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1300px;
+    margin: auto;
+}
+
+.home__container {
+    padding-top: 50px;
+    margin-top: auto;
+    /* background-image: url("../../pictures/bg/home.png"); */
+    /* background-color:#1F1F1F; */
+}

@@ -15,14 +15,6 @@ export function useSocket() {
             socket.connect();
         }
 
-        // socket.on('connect', async () => {
-        //     console.log("✅ Connecté au serveur WebSocket avec ID :", socket.id);
-        // });
-
-        // socket.on("disconnect", () => {
-        //     console.log("❌ Déconnecté du serveur WebSocket");
-        // });
-
         socket.on('connectedUsers', (users) => {
             setAllUsers(users); // status = true/false
         });

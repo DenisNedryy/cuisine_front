@@ -1,10 +1,17 @@
 .profil {
-    color: black;
+    color: white;
+    padding: 30px;
 }
 
 .profil__content {
     width: 65%;
     margin: auto;
+    color: white;
+    background-color: rgba(0, 0, 0, .4);
+    padding: 15px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .3);
 }
 
 .profil__content>h2 {
@@ -20,7 +27,7 @@
     flex-direction: column;
     position: relative;
     width: fit-content;
-    color: rgba(0, 0, 0, .5);
+    color: white;
     font-size: 14px;
     margin: 5px 0px;
 }
@@ -87,11 +94,16 @@
     bottom: 4px;
     right: 3px;
     background-color: white;
+    color:black;
     padding: 5px;
     border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, .1);
+    border: 2px solid rgb(0, 0, 0);
     cursor: pointer;
     font-size: 24px;
+    transition-duration:.8s;
+}
+.profil__content__data__header__profil i:hover{
+    background-color:#cb4747;
 }
 
 .profil .preview {
@@ -109,7 +121,7 @@
 }
 
 .profil__content__data__body>div>div>label {
-    color: rgba(0, 0, 0, .5);
+    color: white;
     font-size: 14px;
 }
 

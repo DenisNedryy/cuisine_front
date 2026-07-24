@@ -7,6 +7,7 @@ export function RecipesBySearch() {
 
     const location = useLocation();
     const [recipesSearched, setRecipesSearched] = useState([]);
+    const [query, setQuery] = useState([]);
 
     useEffect(() => {
         init();
@@ -14,8 +15,9 @@ export function RecipesBySearch() {
 
     async function init() {
         const query = await getUrlParam();
+        setQuery(query);
         const res = await getRecipesByResearch(query);
-         if(res.data.recipes.length>0) setRecipesSearched(res.data.recipes);
+        if (res.data.recipes.length > 0) setRecipesSearched(res.data.recipes);
     }
 
     async function getUrlParam() {
@@ -26,9 +28,8 @@ export function RecipesBySearch() {
 
     return (
         <div className="recipesBySearch">
-            <p>Recipes by search</p>
-            {console.log(recipesSearched)}
-            <Recipes recipesData={recipesSearched}/>
+            <h2>Résultats pour « {query} »</h2>
+            <Recipes recipesData={recipesSearched} />
         </div>
     );
 }

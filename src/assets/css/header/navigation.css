@@ -1,19 +1,18 @@
 .MobileNavigation {
     display: none;
-    position: scroll;
+    position: fixed;
     top: 0px;
     right: 0px;
     bottom: 0px;
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     z-index: 9999;
 }
 
 .navigation__content {
-    width: 66%;
     margin: auto;
 }
 
@@ -35,19 +34,21 @@
     text-decoration: none;
     padding: 7px 15px;
     font-size: 15px;
+    color: white;
 }
 
 .navigation ul a {
     list-style-type: none;
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
 
-.menuIsActive {
-    background-color: rgb(219, 184, 35);
+.menuIsActive>li {
+    color: #8b8b8b;
 }
 
 /* MENU DEROULANT */
+
 .navigation__content a {
     position: relative;
 }
@@ -62,12 +63,14 @@
     left: 0px;
     display: none;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: black;
+    color: white;
 }
 
 .menuDeroulant ul {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: black;
     z-index: 900;
     width: 150px;
 }
@@ -78,7 +81,16 @@
     justify-content: space-between;
     padding: 10px;
     position: relative;
+    background-color: black;
+    color: white;
+}
 
+.menuDeroulant ul li:hover {
+    color: #8b8b8b;
+}
+
+.menuDeroulant ul li a {
+    color: inherit;
 }
 
 .menuDeroulant i {
@@ -86,23 +98,22 @@
 }
 
 .menuDeroulant>ul>li:hover {
-    color: red;
-    background-color: rgb(242, 239, 230);
+    color: #8b8b8b;
 }
 
-.menuDeroulant>ul>div>:hover {
-    color: red;
-    background-color: rgb(242, 239, 230);
+.menuDeroulant>ul>div> :hover {
+    color: #8b8b8b;
 }
 
-.menuDeroulant>ul>div>:hover ul li {
-    color: initial;
+.menuDeroulant>ul>div> :hover ul li {
+    color: white;
 }
 
 .sousMenuDeroulant>ul>div>a>li:hover {
-    color: red !important;
-    background-color: rgb(242, 239, 230);
+   color: #8b8b8b;
 }
+
+
 
 .navigation__content a:hover>.menuDeroulant {
     display: flex;
@@ -117,20 +128,22 @@
     position: absolute;
     top: 0px;
     left: 100%;
+    background-color: black;
+    color: white;
 }
 
 .menuDeroulant ul li:hover .sousMenuDeroulant {
     display: flex;
     flex-direction: column;
+    background-color: black;
+    color: white;
 }
 
 .menuDeroulant ul div {
     margin: 0px;
     padding: 0px;
-}
-
-.sousMenuDeroulant__container {
-    height: fit-content;
+    background-color: black;
+    color: white;
 }
 
 .searchBar__miniNavigation i {
@@ -147,6 +160,7 @@
 }
 
 /* mobile navigation */
+
 .MobileNavigation {
     display: flex;
     flex-direction: column;
@@ -165,6 +179,7 @@
     padding: 15px;
     cursor: pointer;
     font-size: 25px;
+    color: white;
 }
 
 .MobileNavigation__body {
@@ -173,7 +188,7 @@
 }
 
 .MobileNavigation__body a {
-    color: inherit;
+    color: white;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -186,7 +201,7 @@
 }
 
 .mobileMenuActive {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: 3px;
 }
 
@@ -196,6 +211,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .MobileNavigation__body ul {
@@ -205,11 +221,12 @@
 
 .sousMenuDeroulantMobile li {
     list-style-type: none;
+    color: white;
 }
 
 .sousMenuDeroulantMobile a {
     text-decoration: none;
-    color: inherit;
+    color: white;
 }
 
 /* sdfdsfdsfsdfsdfsdfsdf */
@@ -219,11 +236,13 @@
     align-items: center;
     padding: 0.5rem;
     cursor: pointer;
+    color: white;
 }
 
 .nested-menu {
     margin-left: 1rem;
     transition: all 0.3s ease;
+    color: white;
 }
 
 .MobileNavigation__body ul {
@@ -233,6 +252,7 @@
 
 .MobileNavigation__body li {
     padding: 0.5rem;
+    color: white;
 }
 
 .MobileNavigation__body span {
@@ -240,6 +260,7 @@
     margin-left: 15px;
     display: flex;
     align-items: center;
+    color: white;
 }
 
 .MobileNavigation__body span>p {
@@ -253,4 +274,19 @@
 .MobileNavigation__body a {
     display: flex;
     align-items: center;
+}
+
+.sousMenuDeroulant__container {
+    height: fit-content;
+    background-color: black;
+    color: white;
+}
+
+.sousMenuDeroulant__container li {
+    background-color: black;
+    color: white;
+}
+
+.sousMenuDeroulant__container a {
+    color: white;
 }

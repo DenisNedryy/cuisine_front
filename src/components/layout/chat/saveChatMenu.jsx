@@ -41,11 +41,11 @@ export function ChatMenu() {
     socket.connect();
 
     socket.on("connect", () => {
-      console.log("✅ Connecté au serveur WebSocket avec ID :", socket.id);
+      console.log("Connecté au serveur WebSocket avec ID :", socket.id);
     });
 
     socket.on("disconnect", () => {
-      console.log("❌ Déconnecté du serveur WebSocket");
+      console.log("Déconnecté du serveur WebSocket");
     });
 
     return () => {
