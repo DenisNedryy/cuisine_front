@@ -12,6 +12,7 @@
     border-radius: 7px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .3);
+    margin-bottom: 50px;
 }
 
 .createRecipeForm {
@@ -329,5 +330,9 @@
 .divSelect textArea {
     width: 431px;
     height: 150px;
-    resize:none;
+    resize: none;
+}
+
+.ingredients__body__ingredient {
+    color: black;
 }

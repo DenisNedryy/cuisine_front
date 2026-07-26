@@ -41,7 +41,7 @@ export function Populars() {
             <p className="popular__container__title">Top 10</p>
             <h2>Les recettes les plus populaires</h2>
             <p className="popular__container__description">voici un top 10 des recettes les plus populaires</p>
-            <div className="home">
+            <div className="popular__container__home">
                 {/* 1 article de blog */}
                 {recipes && recipes.length > 0 && <Recipes recipesData={recipes} onUpdateFav={controller} />}
             </div>

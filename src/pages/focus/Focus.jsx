@@ -157,14 +157,14 @@ export function Focus() {
         <div className="focus">
 
             <div className="focus__filter">
-
+                {console.log(recipe)}
 
                 <div className="focus__header">
                     <div className="focus__header__previousPage" onClick={(e) => handleReturn(e)}><i className="fa-solid fa-arrow-left"></i> Retour aux recettes</div>
                 </div>
                 <div className="focus__body">
                     <section className="focus__body__main">
-                        <div className="bannerTags">
+                        <div className={`${amITheOwner ? "bannerTags" : ""}`}>
                             {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--update" onClick={(e) => handleUpdate(e)}><i className="fa-regular fa-pen-to-square"></i> <p>Modifier</p></div>}
                             {state.isConnected && amITheOwner && <div className="bannerTag bannerTag--delete" onClick={(e) => handleDeleteRecipe(e)}><i className="fa-regular fa-trash-can"></i> <p>Supprimer</p></div>}
                         </div>
@@ -182,7 +182,6 @@ export function Focus() {
                             </div> :
                                 <p className="focus__body__main__presentation__autheur">{recipe.author}</p>
                             }
-
                             <div className={`focus__body__main__presentation__indicationsAndDescriptionsAndTags ${isUpdate && "clickable"}`} onClick={isUpdate ? (e) => handleUpdateCategories(e) : () => console.log("")}>
                                 <div className={`focus__body__main__presentation__indications`} >
                                     <ul>

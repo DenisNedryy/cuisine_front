@@ -106,7 +106,7 @@ export function FormEtape2() {
                 </div>
                 <div className="divSelect">
                       <label htmlFor="description">Description</label>
-                      <textArea name="description"></textArea>
+                      <textarea name="description"></textarea>
                 </div>
 
                 <div className="answerButtons"> 

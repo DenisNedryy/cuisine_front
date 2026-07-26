@@ -67,10 +67,8 @@ export function Lister({ onUpdate, name }) {
                         <label>{name}s:</label>
                         <div>
                             <select ref={selectRef} >
-                                <option value="sans_gluten">Sans gluten</option>
+                                <option value="ecorcerie">Ecorcerie</option>
                                 <option value="diet">Diet</option>
-                                <option value="sans_lactose">Sans lactose</option>
-                                <option value="rapide">Rapide</option>
                             </select>
                             <button type="button" className="btn btn-createTags" onClick={(e) => addThing(e)}>Ajouter {name}</button>
                         </div>

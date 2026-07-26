@@ -35,19 +35,45 @@ export function Search() {
         dispatch({ type: "LOGOUT" });
     }
 
+    function toggleNavigation() {
+        dispatch({
+            type: "SET_MOBILE",
+            payload: !state.isMobile
+        });
+    }
+
 
 
     return (
         <div className="search">
             <div className="search__content">
+
+                {state.isMobile ? (
+                <div className="search__content__navigation">
+                    <div
+                        className="searchBar__miniNavigation"
+                        onClick={toggleNavigation}
+                        aria-label="Ouvrir le menu"
+                    >
+                      <i className="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                ) : (
+                <div className="search__content__navigation">
+                    <div
+                        className="searchBar__miniNavigation"
+                        onClick={toggleNavigation}
+                        aria-label="Ouvrir le menu"
+                    >
+                       <i className="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                )}
+
                 <div className="search__content__left">
                     <div className="search__logo">
                         <img className="logo_principale" src={logo} />
                         <img className="logo_avatar" src={logo_avatar} />
-
-                        {/* <div className="searchBar__miniNavigation" onClick={(e) => toogleNavigation(e)}>
-                        <i className="fa-solid fa-bars"></i>
-                    </div> */}
                     </div>
                     <Navigation />
                 </div>
@@ -56,7 +82,6 @@ export function Search() {
                     <div className="search__auth">
                         {state.isConnected && myId && <NavLink to={`/profil?userId=${myId}`}><button className="btn search__auth--profil">Profil</button></NavLink>}
                         <NavLink to="/auth"><button className="btn search__auth--auth">Auth</button></NavLink>
-
                         <button className="btn btn-shutDown"> <img src={power} onClick={(e) => shutDownAuth(e)} /></button>
                     </div>
                 </div>

@@ -63,8 +63,9 @@
     text-transform: capitalize;
     max-width: 200px;
     overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
-    word-break: break-word;
     max-height: 76px;
 }
 
@@ -134,7 +135,7 @@
 }
 
 .recipePage__bg {
-    height: 100vh;
+    
 }
 
 .recipes__legend__tags {

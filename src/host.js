@@ -1,1 +1,1 @@
-export const HOST = "https://api-cuisine.skysleep.fr";
+export const HOST = "http://localhost:1892";

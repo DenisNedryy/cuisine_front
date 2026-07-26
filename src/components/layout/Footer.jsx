@@ -1,15 +1,16 @@
 import logo from "/src/assets/pictures/logo/logo.png";
 
+
 export function Footer() {
 
     return (
         <>
             <footer>
                 <div className="footer__container">
-                    <div className="footer__logo">
+                    {/* <div className="footer__logo">
                         <img src={logo} alt="logo" />
                         <p>Cuisine plus, une solution de rappel</p>
-                    </div>
+                    </div> */}
                     <div className="footer__content">
                         <div className="footer__block">
                             <p>De Societate Cuisine</p>

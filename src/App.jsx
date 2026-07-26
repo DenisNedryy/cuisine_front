@@ -58,7 +58,7 @@ function App() {
           {state.isConnected && <Route path="/myRecipes" element={<MyRecipes />} />}
         </Routes>
       </main>
-      <Footer />
+      {/* <Footer /> */}
       {state.isConnected && <ChatMenu />}
     </div>
   )

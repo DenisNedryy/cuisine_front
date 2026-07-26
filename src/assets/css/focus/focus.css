@@ -301,7 +301,7 @@ h3 {
 }
 
 .bannerTags {
-    background-color: black;
+    background-color: rgba(0,0,0,.3);
     position: absolute;
     right: 27px;
     z-index: 999;
@@ -309,6 +309,12 @@ h3 {
     padding: 19px;
     border-radius: 5px;
     top: 22px;
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.bannerTags>div {
+    padding: 6px;
+    border-radius: 3px;
 }
 
 .bannerTags i {
@@ -318,7 +324,7 @@ h3 {
 .bannerTags p {
     font-size: 12px;
     margin-left: 10px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .bannerTag--update {
@@ -478,7 +484,7 @@ h3 {
 /* hauteur */
 .focus__body {
     height: auto;
-  padding: 0px 20px;
+    padding: 0px 20px;
 }
 
 .focus__body__left,

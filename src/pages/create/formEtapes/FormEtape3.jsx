@@ -2,7 +2,7 @@ import { Lister } from "../../../components/common/Lister";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function FormEtape3() {
+export function FormEtape3() { 
 
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
@@ -20,11 +20,8 @@ export function FormEtape3() {
         data.ingredients = ingredients;
         data.steps = steps;
         tags.forEach((tag) => data.tags.push(tag));
-
-
         localStorage.setItem("cuisine-form-create-etape", JSON.stringify(data));
         navigate("/create?form-create-etape=4");
-
     }
 
     return (

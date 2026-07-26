@@ -32,7 +32,6 @@ export function MenuDeroulantMobile({ data, onUpdateLeave, parentPath = '' }) {
                                     </span>
                                     <i className={`fa-solid fa-angle-${openMenuPath === uniquePath ? 'down' : 'right'}`}></i>
                                 </div>
-
                                 {openMenuPath === uniquePath && (
                                     <div className="nested-menu">
                                         <MenuDeroulantMobile

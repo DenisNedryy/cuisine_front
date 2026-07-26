@@ -3,13 +3,13 @@ export const menuNavigationMobile = [
         type: "page",
         route: "",
         name: "Accueil",
-        icon: "fa-solid fa-house"
+        icon: ""
     },
     {
         type: "menu",
         route: "recipes",
         name: "Recettes",
-        icon: "fa-solid fa-list",
+        icon: "",
         children: [
             {
                 type: "menu",
@@ -28,7 +28,7 @@ export const menuNavigationMobile = [
                 type: "menu",
                 route: "recipes",
                 name: "cuissons",
-                
+
                 children: [
                     { type: 'tag', name: "four", tag: 'four' },
                     { type: 'tag', name: 'vapeur', tag: 'vapeur' },
@@ -66,10 +66,8 @@ export const menuNavigationMobile = [
                 route: "recipes",
                 name: "tags",
                 children: [
-                    { type: 'tag', name: "sans gluten", route: 'sans_gluten' },
+                    { type: 'tag', name: "ecorcerie", route: 'ecorcerie' },
                     { type: 'tag', name: 'diet', route: 'diet' },
-                    { type: 'tag', name: 'sans lactose', route: 'sans_lactose' },
-                    { type: 'tag', name: 'rapide', route: 'rapide' },
                 ]
             },
 
@@ -79,24 +77,18 @@ export const menuNavigationMobile = [
         type: "page",
         route: "favorites",
         name: "favoris",
-        icon: "fa-solid fa-heart",
+        icon: "",
     },
     {
         type: "page",
-        route: "books",
-        name: "page",
-        icon: "fa-solid fa-book",
-    },
-    {
-        type: "page",
-        route: "blog",
-        name: "blog",
-        icon: "fa-solid fa-newspaper",
+        route: "populars",
+        name: "populaires",
+        icon: "",
     },
     {
         type: "page",
         route: "create",
         name: "create",
-        icon: "fa-solid fa-square-plus",
+        icon: "",
     },
 ];

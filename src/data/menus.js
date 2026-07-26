@@ -91,10 +91,8 @@ export const recipesMenuData = [
         name: "tags",
         route: "recipes",
         children: [
-            { type: 'tag', name: "sans gluten", route: 'sans_gluten' },
+            { type: 'tag', name: "ecorcerie", route: 'ecorcerie' },
             { type: 'tag', name: 'diet', route: 'diet' },
-            { type: 'tag', name: 'sans lactose', route: 'sans_lactose' },
-            { type: 'tag', name: 'rapide', route: 'rapide' },
         ],
     }
 ];

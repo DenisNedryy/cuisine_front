@@ -18,7 +18,7 @@ export function Navigation() {
     async function checkAuthStatus() {
         const resUser = await isUserConnected();
         if (resUser.ok && resUser.data.isUser) {
-            dispatch({ type: "SET_USER", payload: true });
+            dispatch({ type: "SET_USER", payload: true }); 
         } else {
             dispatch({ type: "LOGOUT" });
         }

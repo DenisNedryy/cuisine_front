@@ -61,6 +61,10 @@
     text-decoration: none;
 }
 
+.auth__selectionPage__header img{
+    display:none;
+}
+
 .bgDeep-true {
     color: #cb4747;
 }
