@@ -7,7 +7,7 @@ import { RecipesPage } from "./pages/Recipes/RecipesPage";
 import { Favorites } from "./pages/favorites/Favorites";
 import { Books } from "./pages/books/Books";
 import { Blog } from "./pages/blog/Blog";
-import { Create } from "./pages/create/create";
+import { Create } from "./pages/create/Create";
 import { Profil } from "./pages/profil/Profil";
 import { Auth } from "./pages/auth/Auth";
 import { Focus } from "./pages/focus/Focus";
