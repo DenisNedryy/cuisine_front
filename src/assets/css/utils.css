@@ -8,6 +8,11 @@
     src: url("../fonts/Roboto-Medium.ttf");
 }
 
+@font-face {
+    font-family: akira;
+    src: url("../fonts/akira.otf");
+}
+
 body {
     font-family: poppins;
 }
