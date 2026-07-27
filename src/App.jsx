@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import { isUserConnected } from './services/auth';
 import { UpdateMenu } from './pages/focus/update/UpdateMenu';
 import { ChatMenu } from "./components/layout/chat/ChatMenu";
-import { RecipesBySearch } from "./pages/recipesBySearch/RecipesBySearch";
+import { RecipesBySearch } from "./pages/RecipesBySearch/RecipesBySearch";
 import { MyRecipes } from './pages/myRecipes/MyRecipes';
 import { Populars } from "./pages/populars/Populars";
 
