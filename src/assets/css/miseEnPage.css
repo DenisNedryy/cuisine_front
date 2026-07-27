@@ -29,7 +29,7 @@ main::before {
     background-position: top center;
     background-size: 100% auto;
 
-    filter: blur(2px);
+    filter: blur(4px);
     z-index: -1;
 
 }

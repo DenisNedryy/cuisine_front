@@ -96,15 +96,15 @@
 
 
 .difficulty--facile {
-    border-left: 32px solid green;
+    border-left: 32px solid #24CFAF;
 }
 
 .difficulty--moyen {
-    border-left: 36px solid rgb(253, 219, 63);
+    border-left: 32px solid rgb(253, 219, 63);
 }
 
 .difficulty--difficile {
-    border-left: 36px solid rgb(227, 82, 65);
+    border-left: 32px solid rgb(227, 82, 65);
 }
 
 .recipe__bottom--favorites i {
@@ -159,7 +159,7 @@
 }
 
 .recipes__legend__difficulty--facile {
-    border-left: 36px solid green;
+    border-left: 36px solid #24CFAF;
     border-top: 36px solid transparent;
     border-bottom: 36px solid transparent;
     bottom: auto;

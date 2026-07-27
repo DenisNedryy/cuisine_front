@@ -35,6 +35,8 @@
     transition: transform 0.4s ease-in-out;
 }
 
+
+
 .search__logo:hover .logo_avatar {
     transform: translateY(-30px) rotate(3deg);
 }
@@ -134,7 +136,10 @@
 
 }
 
-.btn-shutDown {}
+.btn-shutDown {
+    background-color: #24CFAF;
+    /* background-color: #cb4747 */
+}
 
 .searchBar .fa-magnifying-glass {
     color: white;

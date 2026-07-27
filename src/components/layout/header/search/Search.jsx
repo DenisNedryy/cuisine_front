@@ -33,6 +33,7 @@ export function Search() {
         socket.disconnect();
         await shutDown();
         dispatch({ type: "LOGOUT" });
+        
     }
 
     function toggleNavigation() {
