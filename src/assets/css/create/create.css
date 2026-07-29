@@ -3,8 +3,15 @@
 
 
 .createPage__content {
-    width: 550px;
+    display: flex;
+    flex-direction: column;
     margin: auto;
+    width: 1300px;
+    color: white;
+}
+
+.formEtape {
+    width: 550px;
     margin-top: 25px;
     color: white;
     background-color: rgba(0, 0, 0, .4);
@@ -15,6 +22,37 @@
     margin-bottom: 50px;
 }
 
+.formEtapeHeader {
+    margin-top: 37px;
+    margin-bottom: 15px;
+}
+
+.formEtape__header {
+    margin-bottom: 5px;
+}
+
+.formEtape__header i {
+    color: #24CFAF;
+    border: 1px solid #24CFAF;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8px;
+    padding: 7px;
+}
+
+.formEtape__header p {
+    color: #24CFAF;
+}
+
+.formEtape__header {
+    display: flex;
+    align-items: center;
+}
+
 .createRecipeForm {
     display: flex;
     flex-direction: column;
@@ -22,6 +60,12 @@
 
 .createRecipeForm>div {
     display: flex;
+}
+
+.createPage .btn {
+    background-color: #24CFAF;
+    color: black;
+    font-weight: 500;
 }
 
 
@@ -175,16 +219,7 @@
     position: relative;
     display: inline-block;
     text-decoration: none;
-}
-
-.formEtape>h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 2px;
-    background-color: red;
-    width: 100%;
+    font-weight: 600;
 }
 
 .formEtape form {
@@ -201,11 +236,15 @@
 }
 
 .formEtape form>div>input {
-    height: 40px;
+    height: 37px;
     margin: 5px 0 10px;
     outline: none;
     padding-left: 15px;
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: #A8AAAB;
 }
 
 .formEtape .state-true {
@@ -239,6 +278,9 @@
     color: white;
     font-weight: 600;
 }
+.btn-suivant:hover{
+    filter:brightness(.8);
+}
 
 .formEtape .divSelect {
     margin: 10px 0px;
@@ -253,19 +295,28 @@
     background-color: white;
     padding: 5px;
     width: 178px;
+    height: 37px;
+    margin: 5px 0 10px;
+    outline: none;
+    padding-left: 15px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: #A8AAAB;
 }
 
 .ingredients__body,
 .instructions__body {
     overflow: auto;
     height: 150px;
-    padding: 31px;
     width: 300px;
     border-radius: 3px;
     display: flex;
     flex-wrap: wrap;
     width: 426px;
     border: 1px solid rgba(0, 0, 0, .2);
+    height: fit-content;
 }
 
 .ingredients__body__ingredient,
@@ -273,8 +324,8 @@
     border: 1px solid rgba(0, 0, 0, .2);
     background-color: white;
     padding: 7px;
-    margin: 13px 7px;
-    width: fit-content;
+    height: fit-content;
+    width: 100%;
     height: fit-content;
 }
 
@@ -294,9 +345,52 @@
 
 .ingredients__header input {
     height: 32px;
-    margin: 6px 0px;
     padding: 5px;
+    height: 37px;
+    outline: none;
+    padding-left: 15px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: #A8AAAB;
+    margin-right: 6px;
 
+}
+
+.ingredients__header>div>div {
+    display: flex;
+    align-items: center;
+}
+
+html body .btn-createTags {
+    background-color: transparent;
+    color: #24CFAF;
+    font-weight: 500;
+    border: 2px solid #104A3F;
+    padding: 5px 19px;
+    font-size: 12px;
+    height: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+html body .btn-createTags:hover {
+    filter: brightness(.8);
+}
+
+body .answer-true {
+    background-color: green !important;
+    color: white !important;
+}
+
+body .answer-false {
+    background-color: #cb4747 !important;
+    color: white !important;
+}
+
+.ingredients__header>div>div {
+    display: flex;
 }
 
 .ingredients__header label {
@@ -307,8 +401,14 @@
 
 .ingredients__header>div label {
     margin: 10px 0px 5px 0px;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
+}
+
+.formEtape__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .selectIngredients>div {
@@ -328,11 +428,222 @@
 }
 
 .divSelect textArea {
-    width: 431px;
     height: 150px;
     resize: none;
+    margin: 5px 0 10px;
+    outline: none;
+    padding-left: 15px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: #A8AAAB;
+    width: 100%;
 }
 
 .ingredients__body__ingredient {
-    color: black;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredients__body__ingredient i:hover {
+    filter: brightness(.8);
+}
+
+.ingredients__body__ingredient p {
+    font-size: 13px;
+}
+
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+.formEtape__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.formEtape__header > i {
+    margin-top: 4px;
+    color: #21d2b5;
+    font-size: 10px;
+}
+
+.formEtape__header p {
+    margin: 0;
+    color: #21d2b5;
+    font-size: 17px;
+}
+
+.formEtape__header span {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+    font-size: 13px;
+}
+
+.imageDropzone {
+    width: 100%;
+    min-height: 230px;
+    border: 1px dashed rgba(33, 210, 181, 0.6);
+    border-radius: 10px;
+    background: rgba(28, 28, 28, 0.75);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.imageDropzone:hover {
+    border-color: #21d2b5;
+    background: rgba(33, 210, 181, 0.05);
+}
+
+.imageDropzone--active {
+    border-color: #21d2b5;
+    background: rgba(33, 210, 181, 0.12);
+    transform: scale(1.01);
+}
+
+.imageDropzone__empty {
+    min-height: 230px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image:url("../../pictures/bg/drag.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter:brightness(.5);
+}
+
+.imageDropzone__icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 16px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #21d2b5;
+    border-radius: 50%;
+    color: #21d2b5;
+    font-size: 22px;
+}
+
+.imageDropzone__empty p {
+    margin: 0 0 7px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.imageDropzone__empty span {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.imageDropzone__empty small {
+    margin-top: 13px;
+    color: #777;
+    font-size: 12px;
+}
+
+.imageDropzone__preview {
+    position: relative;
+    height: 300px;
+}
+
+.imageDropzone__preview img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.imageDropzone__overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 35px 15px 15px;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.9)
+    );
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.imageDropzone__preview:hover
+.imageDropzone__overlay {
+    opacity: 1;
+}
+
+.imageDropzone__remove {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.imageDropzone__remove:hover {
+    border-color: #e45c5c;
+    background: #e45c5c;
+}
+
+.imageDropzone__error {
+    margin: 9px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #ff7070;
+    font-size: 13px;
+}
+
+.formEtape__actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.formEtape__actions button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.form4 .answerButtons{
+    margin-top:10px;
 }

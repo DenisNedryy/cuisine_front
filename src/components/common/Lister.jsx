@@ -62,23 +62,24 @@ export function Lister({ onUpdate, name }) {
     return (
         <div className="ingredients">
             <div className="ingredients__header">
-                {name === 'Tag' ? (
+                {name === 'Tag' ? (<>
+                    <label>{name}s:</label>
                     <div className="selectIngredients">
-                        <label>{name}s:</label>
                         <div>
                             <select ref={selectRef} >
                                 <option value="ecorcerie">Ecorcerie</option>
                                 <option value="diet">Diet</option>
                             </select>
-                            <button type="button" className="btn btn-createTags" onClick={(e) => addThing(e)}>Ajouter {name}</button>
+                            <button type="button" className="btn-createTags" onClick={(e) => addThing(e)}>Ajouter</button>
                         </div>
                     </div>
+                </>
                 ) : (
                     <div>
                         <label>{name}s:</label>
                         <div>
                             <input type="text" placeholder={name} ref={thingsInputRef} />
-                            <button type="button" className="btn btn-createTags" onClick={(e) => addThing(e)}>Ajouter {name}</button>
+                            <button type="button" className="btn-createTags" onClick={(e) => addThing(e)}>Ajouter</button>
                         </div>
 
 
@@ -89,11 +90,13 @@ export function Lister({ onUpdate, name }) {
 
             <div className={`ingredients__body ingredient__body--${things.length <= 0 ? "false" : "true"}`}>
                 {things.map((myThing, index) => (
-                    <div className="ingredients__body__ingredient" key={index}><i className="fa-regular fa-trash-can" onClick={(e) => deleteThing(e)}></i><p >
+                    <div className="ingredients__body__ingredient" key={index}><p >
                         {name === 'Tag' && myThing.tag}
                         {name === 'Ingrédient' && myThing.name}
                         {name === 'Step' && (`${myThing.step_number} ${myThing.step_instruction} `)}
-                    </p></div>
+                    </p>
+                        <i class="fa-solid fa-xmark" onClick={(e) => deleteThing(e)} />
+                    </div>
                 ))}
             </div>
         </div>

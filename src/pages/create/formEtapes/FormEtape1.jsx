@@ -57,34 +57,42 @@ export function FormEtape1() {
     }
 
     return (
-        <div className="formEtape">
-            <p>Etape <span className="red">1</span> sur <span className="red">4</span></p>
-            <h2>Completer les inputs</h2>
+        <>
+            <div className="formEtapeHeader">
+                <p>Etape <span className="red">1</span> sur <span className="red">4</span></p>
+                <h2>Completer les <span className="red">informations</span></h2>
+            </div>
 
-            <form onSubmit={(e) => submitInputs(e)}>
-                <div>
-                    <label>Name:</label>
-                    <input type="text" name="name" placeholder="Name" />
+            <div className="formEtape">
+                <div className="formEtape__header">
+                    <i className="fa-solid fa-info" /><p>Informations générales</p>
                 </div>
-                <div>
-                    <label>Nb de personnes:</label>
-                    <input type="number" name="servings" placeholder="Personnes" />
-                </div>
-                <div>
-                    <label>Temps de cuisson (min):</label>
-                    <input type="number" name="cook_time" placeholder="Cuisson" />
-                </div>
-                <div>
-                    <label>Temps de préparation (min):</label>
-                    <input type="number" name="prep_time" placeholder="Preparation" />
-                </div>
-                <div className="answerButtons">
-                    <button type="submit" className="btn btn-suivant">Suivant</button>
-                    <div className={`state-${answer.state}`}>
-                        <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+
+                <form onSubmit={(e) => submitInputs(e)}>
+                    <div>
+                        <label>Nom</label>
+                        <input type="text" name="name" placeholder="Ex : Poulet tikka masala" />
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div>
+                        <label>Nb de personnes</label>
+                        <input type="number" name="servings" placeholder="Ex : 3" />
+                    </div>
+                    <div>
+                        <label>Temps de cuisson (min)</label>
+                        <input type="number" name="cook_time" placeholder="Ex : 10" />
+                    </div>
+                    <div>
+                        <label>Temps de préparation (min)</label>
+                        <input type="number" name="prep_time" placeholder="Ex : 5" />
+                    </div>
+                    <div className="answerButtons">
+                        <button type="submit" className="btn btn-suivant">Suivant</button>
+                        <div className={`state-${answer.state}`}>
+                            <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 }

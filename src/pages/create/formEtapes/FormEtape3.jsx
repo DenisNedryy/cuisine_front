@@ -2,7 +2,7 @@ import { Lister } from "../../../components/common/Lister";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export function FormEtape3() { 
+export function FormEtape3() {
 
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
@@ -25,22 +25,28 @@ export function FormEtape3() {
     }
 
     return (
-        <div className="formEtape">
-       <p>Etape <span className="red">3</span> sur <span className="red">4</span></p>
-            <h2>Completer les tags</h2>
-
-
-            <div className="createRecipeForm__right">
-                <Lister onUpdate={setIngredients} name={"Ingrédient"} />
-                <Lister onUpdate={setSteps} name={"Step"} />
-                <Lister onUpdate={setTags} name={"Tag"} />
+        <>
+            <div className="formEtapeHeader">
+                <p>Etape <span className="red">3</span> sur <span className="red">4</span></p>
+                <h2>Completer les <span className="red">tags</span></h2>
             </div>
-            <div className="answerButtons">
-                <button type="submit" className="btn btn-suivant" onClick={(e) => handleSubmit(e)}>Suivant</button>
-                <div className={`state-${answer.state}`}>
-                    <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+            <div className="formEtape">
+                <div className="formEtape__header">
+                    <i className="fa-solid fa-info" /><p>Contenu de la recette</p>
+                </div>
+
+                <div className="createRecipeForm__right">
+                    <Lister onUpdate={setIngredients} name={"Ingrédient"} />
+                    <Lister onUpdate={setSteps} name={"Step"} />
+                    <Lister onUpdate={setTags} name={"Tag"} />
+                </div>
+                <div className="answerButtons">
+                    <button type="submit" className="btn btn-suivant" onClick={(e) => handleSubmit(e)}>Suivant</button>
+                    <div className={`state-${answer.state}`}>
+                        <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

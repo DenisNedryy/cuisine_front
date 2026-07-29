@@ -37,9 +37,9 @@
 
 
 
-.search__logo:hover .logo_avatar {
+/* .search__logo:hover .logo_avatar {
     transform: translateY(-30px) rotate(3deg);
-}
+} */
 
 @keyframes saut {
 
@@ -139,6 +139,14 @@
 .btn-shutDown {
     background-color: #24CFAF;
     /* background-color: #cb4747 */
+}
+
+.btn-shutDown:hover {
+    filter: brightness(.9);
+}
+
+.search__auth--auth:hover{
+    filter: brightness(1.2);
 }
 
 .searchBar .fa-magnifying-glass {

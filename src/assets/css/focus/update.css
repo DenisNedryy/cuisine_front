@@ -38,10 +38,7 @@
     width: 100%;
 }
 
-.formEtape {
-    width: 400px;
-    margin: auto;
-}
+
 
 .clickable:hover {
     border: 2px dotted red;

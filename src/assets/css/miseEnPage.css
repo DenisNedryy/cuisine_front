@@ -23,13 +23,13 @@ main::before {
     position: absolute;
     inset: 0;
 
-    background-color: #1F1F1F;
-    background-image: url("../pictures/bg/cook.png");
+    background-color: #151515;
+    background-image: url("../pictures/bg/cook5.png");
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% auto;
 
-    filter: blur(4px);
+    filter: blur(0px);
     z-index: -1;
 
 }
