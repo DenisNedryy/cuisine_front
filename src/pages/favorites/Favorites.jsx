@@ -38,7 +38,7 @@ export function Favorites() {
 
     return (
         <>  <div className="recipePage__bg">
-        <h2 className="favoriesTitle">Favories</h2>
+        <h2 className="favoriesTitle">Favoris</h2>
         <p className="favoriesSousTitle">Vos recettes favorites</p>
         <p className="recipePage__bg__sousTitle">Retrouvez en un clin d’œil toutes les recettes que vous avez mises de côté.</p>
             <div className="recipePage__container">

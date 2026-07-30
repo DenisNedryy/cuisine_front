@@ -202,13 +202,14 @@
 }
 
 .mesRecettes {
-    color: rgba(255, 255, 255, .1);
+    color: white;
     margin: 37px 0px 15px 0px;
     text-transform: uppercase;
     font-size: 17px;
-    border-top: 2px solid rgba(255, 255, 255, .1);
+    background-color: #24CFAF8C;
     padding: 15px;
     width: fit-content;
+    border-radius: 11px;
 }
 
 .chatRoom__content__footer {
@@ -259,8 +260,9 @@
 .pageCube {
     text-decoration: none;
 }
-.pageCube:hover{
-    color:#24CFAF;
+
+.pageCube:hover {
+    filter: brightness(.8);
 }
 
 .pageContainer {
@@ -269,12 +271,17 @@
 }
 
 .currentPage {
-background-color: white;
-  color: black;
+    background-color: white;
+    color: black;
+    border: 1px solid #8EE1D18C;
 }
 
 .btn-myRecipes {
-    background-color: rgb(219, 184, 35);
+    background-color: #24CFAF;
+    color: black;
+    font-weight: 500;
+    width: fit-content;
+    margin-top: 15px;
 }
 
 /* Recipes Intro*/

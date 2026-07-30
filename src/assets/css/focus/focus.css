@@ -230,11 +230,13 @@ h3 {
     list-style-type: none;
     display: flex;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, .6);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     margin: 5px;
-    padding: 4px;
+    padding: 6px;
     text-transform: capitalize;
-    background-color: rgba(56, 192, 167, 0.13);
+    background-color: #24CFAF8C;
+    border-radius: 5px;
+    color: white;
 }
 
 .focus__body__main__presentation__indications img {
@@ -311,20 +313,22 @@ h3 {
 }
 
 .bannerTags {
-    background-color: rgba(0, 0, 0, .3);
     position: absolute;
     right: 27px;
     z-index: 999;
-    width: 129px;
     padding: 19px;
     border-radius: 5px;
     top: 22px;
-    border: 1px solid rgba(255, 255, 255, .3);
+    display: flex;
+    align-items: center;
 }
 
 .bannerTags>div {
-    padding: 6px;
-    border-radius: 3px;
+    padding: 6px 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,.8);
+    background-color: black;
+    margin-right: 10px;
 }
 
 .bannerTags i {
@@ -340,10 +344,14 @@ h3 {
 .bannerTag--update {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
 }
 
-.bannerTag--update:hover,
+
+
+.bannerTag--update:hover{
+        color: rgb(35, 210, 178);
+}
+
 .bannerTag--delete:hover {
     color: rgb(239, 71, 106);
 }

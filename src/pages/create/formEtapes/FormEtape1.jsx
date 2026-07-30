@@ -12,7 +12,7 @@ export function FormEtape1() {
     function submitInputs(e) {
         e.preventDefault();
         // Reset des fields
-        localStorage.removeItem('cuisine-form-create-etape');
+        localStorage.removeItem('cuisine-form-create-etape'); 
 
         const form = e.target;
         const data = [
@@ -59,7 +59,7 @@ export function FormEtape1() {
     return (
         <>
             <div className="formEtapeHeader">
-                <p>Etape <span className="red">1</span> sur <span className="red">4</span></p>
+                <p>Etape <span className="red">1</span> sur <span className="red">4</span></p> 
                 <h2>Completer les <span className="red">informations</span></h2>
             </div>
 

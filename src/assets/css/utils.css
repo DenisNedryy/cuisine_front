@@ -70,11 +70,11 @@ body {
 }
 
 .userIconnected--true {
-    background-color: green;
+    background-color:  #24CFAF;
 }
 
 .userIconnected--false {
-    background-color: red;
+    background-color: #cb4747;
 }
 
 .asterixRouge {

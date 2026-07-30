@@ -97,69 +97,90 @@ export function CategoryUpdateForm() {
     }
 
     return (
-        <div className="formEtape">
-            <div className="formEtage__header">
-                <div className="formEtage__header__previousPage" onClick={(e) => handleReturn(e)}><i className="fa-solid fa-arrow-left"></i></div>
-                <h2>Modifier les categories</h2>
+        <>
+            <div className="formEtapeHeader">
+
+                <h2>
+                    Completer les{" "}
+                    <span className="red">catégories</span>
+                </h2>
             </div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <div className="divSelect">
-                    <label htmlFor="category">Catégorie</label>
-                    <select id="category" name="category">
-                        <option value="entrée">Entrée</option>
-                        <option value="plat">Plat</option>
-                        <option value="dessert">Dessert</option>
-                        <option value="boisson">Boisson</option>
-                        <option value="apéro">Apéro</option>
-                        <option value="petit-dejeuner">Petit-déjeuner</option>
-                    </select>
+                        <div className="formEtage__header"  onClick={handleReturn}>
+                <div
+                    className="formEtage__header__previousPage"
+                   
+                >
+                    <i className="fa-solid fa-arrow-left" />
                 </div>
-                <div className="divSelect">
-                    <label htmlFor="difficulty">Difficulté</label>
-                    <select id="difficulty" name="difficulty">
-                        <option value="facile">Facile</option>
-                        <option value="moyen">Moyen</option>
-                        <option value="difficile">Difficile</option>
-                    </select>
+
+                <h2>Revenir à la recette</h2>
+            </div>
+            <div className="formEtape">
+                             <div className="formEtape__header">
+                    <i className="fa-solid fa-info" />
+
+                    <p>Informations générales</p>
                 </div>
-                <div className="divSelect">
-                    <label htmlFor="regions">Régions</label>
-                    <select id="regions" name="regions">
-                        <option value="méditéranéenne">méditéranéenne</option>
-                        <option value="asiatique">asiatique</option>
-                        <option value="italienne">italienne</option>
-                        <option value="indienne">indienne</option>
-                    </select>
-                </div>
-                <div className="divSelect">
-                    <label htmlFor="cuisson">Cuisson</label>
-                    <select id="cuisson" name="cuisson">
-                        <option value="four">four</option>
-                        <option value="casserole">casserole</option>
-                        <option value="vapeur">vapeur</option>
-                        <option value="poele">poele</option>
-                        <option value="grillé">grillé</option>
-                        <option value="roti">roti</option>
-                        <option value="cru">cru</option>
-                    </select>
-                </div>
-                <div className="divSelect">
-                    <label htmlFor="saisons">Saisons</label>
-                    <select id="saisons" name="saisons">
-                        <option value="printemps">printemps</option>
-                        <option value="été">été</option>
-                        <option value="automne">automne</option>
-                        <option value="hiver">hiver</option>
-                    </select>
-                </div>
-                <Lister onUpdate={setTags} name={"Tag"} />
-                <div className="answerButtons">
-                    <button type="submit" className="btn btn-suivant">Modifier</button>
-                    <div className={`state-${answer.state}`}>
-                        <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div className="divSelect">
+                        <label htmlFor="category">Catégorie</label>
+                        <select id="category" name="category">
+                            <option value="entrée">Entrée</option>
+                            <option value="plat">Plat</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="boisson">Boisson</option>
+                            <option value="apéro">Apéro</option>
+                            <option value="petit-dejeuner">Petit-déjeuner</option>
+                        </select>
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div className="divSelect">
+                        <label htmlFor="difficulty">Difficulté</label>
+                        <select id="difficulty" name="difficulty">
+                            <option value="facile">Facile</option>
+                            <option value="moyen">Moyen</option>
+                            <option value="difficile">Difficile</option>
+                        </select>
+                    </div>
+                    <div className="divSelect">
+                        <label htmlFor="regions">Régions</label>
+                        <select id="regions" name="regions">
+                            <option value="méditéranéenne">méditéranéenne</option>
+                            <option value="asiatique">asiatique</option>
+                            <option value="italienne">italienne</option>
+                            <option value="indienne">indienne</option>
+                        </select>
+                    </div>
+                    <div className="divSelect">
+                        <label htmlFor="cuisson">Cuisson</label>
+                        <select id="cuisson" name="cuisson">
+                            <option value="four">four</option>
+                            <option value="casserole">casserole</option>
+                            <option value="vapeur">vapeur</option>
+                            <option value="poele">poele</option>
+                            <option value="grillé">grillé</option>
+                            <option value="roti">roti</option>
+                            <option value="cru">cru</option>
+                        </select>
+                    </div>
+                    <div className="divSelect">
+                        <label htmlFor="saisons">Saisons</label>
+                        <select id="saisons" name="saisons">
+                            <option value="printemps">printemps</option>
+                            <option value="été">été</option>
+                            <option value="automne">automne</option>
+                            <option value="hiver">hiver</option>
+                        </select>
+                    </div>
+                    <Lister onUpdate={setTags} name={"Tag"} />
+                    <div className="answerButtons">
+                        <button type="submit" className="btn btn-suivant">Modifier</button>
+                        <div className={`state-${answer.state}`}>
+                            <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 }

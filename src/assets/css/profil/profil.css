@@ -8,16 +8,15 @@
     margin: auto;
     color: white;
     background-color: rgba(0, 0, 0, .4);
-    padding: 15px;
+    padding: 40px;
     border-radius: 7px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .3);
 }
 
 .profil__content>h2 {
-    font-size: 20px;
-    margin: 15px 0px;
-    font-weight: 500;
+    color: white;
+    margin-bottom: 34px;
 }
 
 /*formulaire */
@@ -28,8 +27,27 @@
     position: relative;
     width: fit-content;
     color: white;
-    font-size: 14px;
     margin: 5px 0px;
+    font-size: 13px;
+    margin: 0px;
+}
+
+.textPopular i {
+    color: red;
+    font-size: 12px;
+    margin: 0px 5px;
+}
+
+.mostLikedRecipe--number {
+    margin: 0px 5px;
+}
+
+.textPopular a:hover {
+    filter: brightness(.9);
+}
+
+.btn-myRecipes:hover {
+    filter: brightness(.9);
 }
 
 .profil form label>.asterixRouge {
@@ -60,6 +78,7 @@
 
 .mostLikedRecipe {
     font-weight: 600;
+    color: #24CFAF;
 }
 
 .profil__content__data__footer a {
@@ -73,8 +92,8 @@
 
 .profil__content__data__header {
     display: flex;
-    justify-content: space-between;
     width: 55%;
+    align-items: center;
 }
 
 .profil__content__data__header img {
@@ -82,6 +101,81 @@
     height: 90px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+.profil__content__data__header__generals {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.profil__content__data__header__generals--name {
+    font-size: 31px;
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.sousTexte {
+    color: #AAB6B6;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.sousTexte i {
+    margin-right: 10px;
+    color: #21d2b5;
+}
+
+.profil__content__data__description {
+    margin: 36px 0
+}
+
+.profil__content__data__description .sousTexte {
+    padding: 36px 17px;
+    background-color: #ffffff1a;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.profil__content__data__popular--content {
+    padding: 5px 17px;
+    background-color: #ffffff1a;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.profil__content__data__description--title {
+    display: flex;
+    align-items: center;
+}
+
+.profil__content__data__description--title i {
+    margin-right: 10px;
+    color: #21d2b5;
+    font-size: 9px;
+    border: 1px solid #24CFAF;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.profil__content__data__popular img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid #24CFAF91;
+    border-radius: 7px;
+    margin-top: 5px;
+}
+
+.profil__content__data__popular a {
+    text-decoration: none;
 }
 
 .profil__content__data__header__profil {
@@ -94,16 +188,17 @@
     bottom: 4px;
     right: 3px;
     background-color: white;
-    color:black;
+    color: black;
     padding: 5px;
     border-radius: 50%;
     border: 2px solid rgb(0, 0, 0);
     cursor: pointer;
     font-size: 24px;
-    transition-duration:.8s;
+    transition-duration: .8s;
 }
-.profil__content__data__header__profil i:hover{
-    background-color:#cb4747;
+
+.profil__content__data__header__profil i:hover {
+    background-color: #cb4747;
 }
 
 .profil .preview {
@@ -130,6 +225,9 @@
     width: 400px;
     resize: none;
     padding: 15px 5px;
+    background-color: #292828;
+    color: #A8AAAB;
+    border: 1px solid rgba(255, 255, 255, .1);
 }
 
 .profil input {
@@ -142,26 +240,38 @@
 
 .profil__content__data__footer {
     font-size: 15px;
-    padding-top: 35px;
     border-top: 1px solid rgba(0, 0, 0, .1);
     margin-bottom: 30px;
+    margin-top: 15px;
 }
 
 .profil input {
     padding-left: 5px;
+    height: 37px;
+    margin: 5px 0 10px;
+    outline: none;
+    padding-left: 15px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: #292828;
+    color: #A8AAAB;
 }
 
 .profil .btn-modifier {
+    background-color: #24CFAF;
+    color: black;
+    font-weight: 500;
     width: fit-content;
-    height: fit-content;
-    padding: 13px;
-    border-radius: 3px;
-    background-color: rgb(219, 184, 35);
+    margin-top: 15px;
 }
+
+
 
 .profil__content__data__body {
     display: flex;
     margin-right: 15px;
+    margin-top: 34px;
 }
 
 .profil__content__data__body>div {
@@ -186,5 +296,5 @@
 .profil form button[type='submit'] {
     width: fit-content;
     margin: 10px 0px;
-    background-color: rgb(219, 184, 35);
+    background-color: #24CFAF;
 }

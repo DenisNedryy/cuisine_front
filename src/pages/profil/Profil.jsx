@@ -99,22 +99,22 @@ export function Profil() {
     }
 
     function formatDate(date) {
-          console.log("coucou");
+        console.log("coucou");
         if (!date) return "";
 
         const day = String(date.day).padStart(2, "0");
         const month = String(date.month).padStart(2, "0");
-      
+
 
         return `${day}/${month}/${date.year}`;
     };
 
-           
+
 
     return (
         <div className="profil">
             <div className="profil__content">
-                <h2>Mes données personnelles</h2>
+                <h2>Page de <span className="red">profil</span></h2>
 
                 {user && user.email ? (
                     <div className="profil__content__data">
@@ -124,10 +124,23 @@ export function Profil() {
                                 <label htmlFor="imageProfil" className="myLabel"><i className="fa-solid fa-camera" ></i></label>
                             </div>
                             <input type="file" name="img_url" id="imageProfil" onChange={handleImage} ref={imgRef} />
-                            {!isModifyMod && <button className="btn btn-modifier" onClick={toggleModify}>Modifier</button>}
+                            <div className="profil__content__data__header__generals">
+                                {user && <p className="profil__content__data__header__generals--name">{user.name}</p>}
+                                {dateData !== null && (
+                                    <p className="sousTexte">
+                                        Membre depuis le {formatDate(dateData)}
+                                    </p>
+                                )}
+                                {user &&
+                                    <p className="sousTexte">
+                                        <i class="fa-regular fa-envelope" /> {user.email}
+                                    </p>
+                                }
+                                {!isModifyMod && <button className="btn btn-modifier" onClick={toggleModify}>Modifier</button>}
+                            </div>
                         </div>
 
-                        {isModifyMod ? (
+                        {isModifyMod && (
                             <div className="profil__content__data__body">
                                 <form onSubmit={handleSubmit}>
                                     <div>
@@ -153,31 +166,23 @@ export function Profil() {
                                     <button type="submit" className="btn">Submit</button>
                                 </form>
                             </div>
-                        ) : (
-                            <div className="profil__content__data__body">
-                                <div>
-                                    <div>
-                                        <label>Name <span className="asterixRouge">*</span></label>
-                                        {user !== null && <p>{user.name}</p>}
-                                    </div>
-                                    <div>
-                                        <label>Email <span className="asterixRouge">*</span></label>
-                                        {user !== null && <p>{user.email}</p>}
-                                    </div>
-                                    <div>
-                                        <label>Password <span className="asterixRouge">*</span></label>
-                                        <p>****************</p>
-                                    </div>
-                                </div>
-                                <div className="profil__content__data__body__description">
-                                    {user !== null && <p>{user.description}</p>}
-                                </div>
+                        )
+                        }
+                        <div className="profil__content__data__description">
+                            <div className="profil__content__data__description--title">  <i className="fa-solid fa-info" /><p>A propos de moi</p></div>
+                            {user !== null && <p className="sousTexte">{user.description}</p>}
+                        </div>
+                        <div className="profil__content__data__popular">
+                            <div className="profil__content__data__description--title">  <i className="fa-solid fa-crown" /><p>Ma recette la plus populaire</p></div>
+                            {/* <p>{favCount} likes / {myRecipeCount} recettes</p> */}
+                            <div className="profil__content__data__popular--content">
+                                <img src={`${HOST}/api/images/recipes/${mostFavRecipe.img_url}`} />
+                                 <p className="textPopular"> <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> (<i className="fa-solid fa-heart"/><span className="mostLikedRecipe--number">{mostFavRecipe.favorites_count}</span>{mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
                             </div>
-                        )}
+                           
+                        </div>
                         <div className="profil__content__data__footer">
-                            {dateData !== null && <p>Date d'inscription: {formatDate(dateData)}</p>}
-                            <p>{favCount} likes / {myRecipeCount} recettes</p>
-                            <p>Recette la plus populaire: <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> ({mostFavRecipe.favorites_count} {mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
+
                             <button className="btn btn-myRecipes" onClick={recettesProfil}>Mes recettes</button>
                         </div>
                     </div>
@@ -196,7 +201,7 @@ export function Profil() {
                                         <div className="inputsClassiques">
                                             <div>
                                                 <label>Name<span className="asterixRouge">*</span></label>
-                                                <input type="text" name="name" placeholder="Nom" />
+                                                <input type="text" name="name" placeholder="Ex: " />
                                             </div>
                                             <div>
                                                 <label>Email<span className="asterixRouge">*</span></label>
@@ -231,13 +236,9 @@ export function Profil() {
                             </div>
                         )}
                         <div className="profil__content__data__footer">
-                            {dateData !== null && (
-                                <p>
-                                    Date d'inscription : {formatDate(dateData)}
-                                </p>
-                            )}
+
                             <p>{favCount} likes / {myRecipeCount} recettes</p>
-                            <p>Recette la plus populaire: <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> ({mostFavRecipe.favorites_count} {mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
+                            <p> <NavLink to={`/focus?&recipeId=${mostFavRecipe._id}`}><span className="mostLikedRecipe">{mostFavRecipe.name}</span></NavLink> (<i className="fa-solid fa-heart"/>{mostFavRecipe.favorites_count}{mostFavRecipe.favorites_count > 1 ? "likes" : "like"})</p>
                             <button className="btn btn-myRecipes" onClick={recettesProfil}>Mes recettes</button>
                         </div>
                     </div>

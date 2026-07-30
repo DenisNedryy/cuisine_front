@@ -85,25 +85,46 @@ export function IngredientUpdateForm() {
     }
 
     return (
-        <div className="formEtape">
-            <div className="formEtage__header">
-                <div className="formEtage__header__previousPage" onClick={(e) => handleReturn(e)}><i className="fa-solid fa-arrow-left"></i></div>
-                <h2>Modifier Ingrédients & Etapes</h2>
+        <>
+            <div className="formEtapeHeader">
+
+                <h2>
+                    Completer les{" "}
+                    <span className="red">tags</span>
+                </h2>
             </div>
+            <div className="formEtage__header" onClick={handleReturn}>
+                <div
+                    className="formEtage__header__previousPage"
 
-
-
-            <form onSubmit={(e) => handleSubmit(e)}>
-
-                <Lister onUpdate={setIngredients} name={"Ingrédient"} />
-                <Lister onUpdate={setSteps} name={"Step"} />
-                <div className="answerButtons">
-                    <button type="submit" className="btn btn-suivant">Modifier</button>
-                    <div className={`state-${answer.state}`}>
-                        <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
-                    </div>
+                >
+                    <i className="fa-solid fa-arrow-left" />
                 </div>
-            </form>
-        </div>
+
+                <h2>Revenir à la recette</h2>
+            </div>
+            <div className="formEtape">
+                <div className="formEtape__header">
+                    <i className="fa-solid fa-info" />
+
+                    <p>Contenu de la recette</p>
+                </div>
+
+
+
+
+                <form onSubmit={(e) => handleSubmit(e)}>
+
+                    <Lister onUpdate={setIngredients} name={"Ingrédient"} />
+                    <Lister onUpdate={setSteps} name={"Step"} />
+                    <div className="answerButtons">
+                        <button type="submit" className="btn btn-suivant">Modifier</button>
+                        <div className={`state-${answer.state}`}>
+                            <p className={`btn  answer-${answer.color}`}>{answer.msg}</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </>
     );
 }

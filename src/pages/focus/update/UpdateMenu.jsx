@@ -33,7 +33,6 @@ export function UpdateMenu() {
 
     return (
         <div className="updateMenu">
-            <h1>Mise à jour de la recette </h1>
             {updateParam && updateParam === "image" && <ImageUpdateForm />}
             {updateParam && updateParam === "category" && <CategoryUpdateForm />}
             {updateParam && updateParam === "ingredientTag" && <IngredientUpdateForm />}
