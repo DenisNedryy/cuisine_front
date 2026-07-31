@@ -10,6 +10,9 @@
     background-color: rgba(0, 0, 0);
     color: white;
     z-index: 9999;
+    animation-name: appearsSlowlyFromLeft;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
 }
 
 .navigation__content {
@@ -268,10 +271,11 @@ body .nested-menu ul>a>li:hover {
 }
 
 .MobileNavigation__body li {
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     color: white;
     text-transform: capitalize;
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .MobileNavigation__body li p {
@@ -317,6 +321,7 @@ body .nested-menu ul>a>li:hover {
 .MobileNavigation__body .search__auth .btn-shutDown {
     background-color: #cb4747;
 }
-.MobileNavigation__body .search__auth button:hover{
-    filter:brightness(.8);
+
+.MobileNavigation__body .search__auth button:hover {
+    filter: brightness(.8);
 }

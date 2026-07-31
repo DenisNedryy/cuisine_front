@@ -69,6 +69,11 @@
         margin: auto;
         width: 90%;
     }
+
+    body .recipesBySearch {
+        margin: auto;
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 1299px) {
@@ -212,6 +217,10 @@
     .search__content {
         width: 100%;
     }
+
+    .profil__content {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 940px) {
@@ -292,7 +301,7 @@
     }
 
     html .profil__content {
-        width: 86%;
+        width: 100%;
     }
 
     body .createPage__content {
@@ -424,7 +433,7 @@
     }
 
     html .formEtape form>div>input {
-        width: 300px;
+        width: 100%;
     }
 
     html .formEtage__header__previousPage {
@@ -517,6 +526,13 @@
         margin: 5px;
     }
 
+
+}
+
+@media screen and (max-width: 530px) {
+    body .focus__body__left__console__buttons .btn-cadre {
+        font-size: 12px;
+    }
 
 }
 

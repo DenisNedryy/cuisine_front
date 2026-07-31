@@ -326,7 +326,7 @@ h3 {
 .bannerTags>div {
     padding: 6px 15px;
     border-radius: 5px;
-    border: 1px solid rgba(255,255,255,.8);
+    border: 1px solid rgba(255, 255, 255, .8);
     background-color: black;
     margin-right: 10px;
 }
@@ -348,13 +348,15 @@ h3 {
 
 
 
-.bannerTag--update:hover{
-        color: rgb(35, 210, 178);
+.bannerTag--update:hover {
+    color: rgb(35, 210, 178);
 }
 
 .bannerTag--delete:hover {
     color: rgb(239, 71, 106);
 }
+
+
 
 .bannerTag--delete {
     display: flex;

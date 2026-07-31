@@ -4,7 +4,7 @@
 }
 
 .profil__content {
-    width: 65%;
+    width: 39%;
     margin: auto;
     color: white;
     background-color: rgba(0, 0, 0, .4);
@@ -222,7 +222,7 @@
 
 .profil textarea[name='description'] {
     height: 150px;
-    width: 400px;
+    width: 100%;
     resize: none;
     padding: 15px 5px;
     background-color: #292828;

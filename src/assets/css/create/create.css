@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 1300px;
+    width: 500px;
     color: white;
 }
 
@@ -25,10 +25,15 @@
 .formEtapeHeader {
     margin-top: 37px;
     margin-bottom: 15px;
+    margin-left: 14px;
 }
 
 .formEtape__header {
     margin-bottom: 5px;
+}
+
+.formEtape form{
+    width: 100%;
 }
 
 .formEtape__header i {
@@ -253,6 +258,7 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
+    margin-left: 8px;
 }
 
 .formEtape .state-false {
@@ -261,6 +267,7 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in-out;
+    margin-left: 8px;
 }
 
 .formEtape .answerButtons {
@@ -273,12 +280,13 @@
 }
 
 .btn-suivant {
-background-color: #24CFAF;
-  color: black;
-  font-weight: 500;
+    background-color: #24CFAF;
+    color: black;
+    font-weight: 500;
 }
-.btn-suivant:hover{
-    filter:brightness(.8);
+
+.btn-suivant:hover {
+    filter: brightness(.8);
 }
 
 .formEtape .divSelect {
@@ -477,18 +485,18 @@ input[type="number"]::-webkit-outer-spin-button {
     margin-bottom: 22px;
 }
 
-.formEtape__header > i {
+.formEtape__header>i {
     margin-top: 4px;
-  color: #21d2b5;
-  font-size: 9px;
-  border: 1px solid #24CFAF;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
+    color: #21d2b5;
+    font-size: 9px;
+    border: 1px solid #24CFAF;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
 }
 
 .formEtape__header p {
@@ -537,10 +545,10 @@ input[type="number"]::-webkit-outer-spin-button {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image:url("../../pictures/bg/drag.png");
+    background-image: url("../../pictures/bg/drag.png");
     background-repeat: no-repeat;
     background-size: cover;
-    filter:brightness(.5);
+    filter: brightness(.5);
 }
 
 .imageDropzone__icon {
@@ -591,18 +599,15 @@ input[type="number"]::-webkit-outer-spin-button {
     bottom: 0;
     left: 0;
     padding: 35px 15px 15px;
-    background: linear-gradient(
-        transparent,
-        rgba(0, 0, 0, 0.9)
-    );
+    background: linear-gradient(transparent,
+            rgba(0, 0, 0, 0.9));
     color: white;
     text-align: center;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
 
-.imageDropzone__preview:hover
-.imageDropzone__overlay {
+.imageDropzone__preview:hover .imageDropzone__overlay {
     opacity: 1;
 }
 
@@ -651,6 +656,14 @@ input[type="number"]::-webkit-outer-spin-button {
     opacity: 0.6;
 }
 
-.form4 .answerButtons{
-    margin-top:10px;
+.form4 .answerButtons {
+    margin-top: 10px;
+}
+
+.profil__content .profil form {
+    flex-wrap: wrap;
+}
+
+.profil__content input {
+    min-width: 150px;
 }
